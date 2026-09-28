@@ -72,15 +72,15 @@ rule-providers:
 
 AI_Services:
     type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
+    behavior: classical
+    url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/AI_Services.yaml"
     path: ./rules/AI_Services.yaml
     interval: 86400
 
   Crypto:
     type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cryptocurrency/Cryptocurrency_No_Resolve.yaml"
+    behavior: classical
+    url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/Crypto.yaml"
     path: ./rules/Crypto.yaml
     interval: 86400
 
