@@ -30,7 +30,7 @@ dns:
     - 223.5.5.5
     - 119.29.29.29
   nameserver:
-    - https://223.5.5.5/dns-query
+    - https://dns.alidns.com/dns-query
     - https://1.12.12.12/dns-query
 
 
@@ -54,7 +54,7 @@ proxy-providers:
     
     # 🔽 【核心：全局排除正则】在此添加 exclude-filter
     # 匹配到的节点将在全局直接被过滤丢弃，不会出现在任何策略组中
-    exclude-filter: "(官网|网站|地址|过期|到期|剩余|流量|重置|联系|客服|客服|群|订阅|续费|测试|专线|公告|提示)"
+    exclude-filter: "(官网|网站|地址|过期|到期|剩余|流量|重置|联系|客服|群|订阅|续费|测试|专线|公告|提示)"
     
     health-check:
       enable: true
@@ -62,23 +62,68 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
 
 # ---------------------------------------------------------
-# 2. 外部规则集配置 (Rule Providers)
+# 2. 路由分流规则 (Rules)
+# 对应你原配置文件中的 ruleset
+# ---------------------------------------------------------
+rules:
+  - RULE-SET,GoogleVoice,📱 GoogleVoice
+  - RULE-SET,AI,👽 AI
+  - RULE-SET,TestFlight,🌍 Global服务
+  - RULE-SET,Apple,🍏 Apple服务
+  - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
+  - RULE-SET,Privacy,🛡️ 隐私防护
+  - RULE-SET,Hijacking,🛡️ 隐私防护
+  - RULE-SET,RejectAd,🛑 广告拦截
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Telegram,📱 电报消息
+  - RULE-SET,Samsung,📱 三星服务
+  - RULE-SET,Netflix,🎬 Netflix视频
+  - RULE-SET,Whatsapp,📘 Whatsapp
+  - RULE-SET,Instagram,📘 Instagram
+  - RULE-SET,PayPal,📘 PayPal
+  - RULE-SET,GoogleFCM,📢 谷歌FCM
+  - RULE-SET,Microsoft,📘 Microsoft服务
+  - RULE-SET,Crypto,💰 加密货币
+  - RULE-SET,YouTubeMusic,🎬 YouTube服务
+  - RULE-SET,YouTube,🎬 YouTube服务
+  - RULE-SET,Twitter,📘 X
+  - RULE-SET,WeChat,🇨🇳 微信
+  - RULE-SET,Douyin,🇨🇳 抖音
+  - RULE-SET,TikTok,🎬 TikTok
+  - RULE-SET,Google,🔍️ Google服务
+  - RULE-SET,Facebook,📘 Facebook
+  - RULE-SET,CnCIDR,🎯 国内直连
+  - RULE-SET,CN,🎯 国内直连
+  - RULE-SET,Global,🌍 Global服务
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,🐟 漏网之鱼
+
+# ---------------------------------------------------------
+# 3. 外部规则集配置 (Rule Providers)
 # 对应你原配置文件中的 ruleset 链接
 # ---------------------------------------------------------
 rule-providers:
   GoogleVoice:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleVoice/GoogleVoice.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleVoice/GoogleVoice.yaml"
     path: ./rules/GoogleVoice.yaml
     interval: 86400
 
   AI:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/meta/ai.list"
+    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/ai.yaml"
     path: ./rules/AI.yaml
     interval: 86400
+
+  Crypto:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/crypto.yaml"
+    path: ./rules/Crypto.yaml
+    interval: 86400
+    
 
   TestFlight:
     type: http
@@ -90,16 +135,15 @@ rule-providers:
   Apple:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/apple.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml"
     path: ./rules/Apple.yaml
     interval: 86400
-
-
-  HttpDNS:
+    
+  BlockHttpDNS:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/httpdns.list"
-    path: ./rules/HttpDNS.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BlockHttpDNS/BlockHttpDNS_No_Resolve.yaml"
+    path: ./rules/BlockHttpDNS.yaml
     interval: 86400
 
   Privacy:
@@ -116,24 +160,10 @@ rule-providers:
     path: ./rules/Hijacking.yaml
     interval: 86400
 
-  RejectAd:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Loon/rule/rejectAd.list"
-    path: ./rules/RejectAd.yaml
-    interval: 86400
-
-  Adblock4limbo:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.list"
-    path: ./rules/Adblock4limbo.yaml
-    interval: 86400
-
   Spotify:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/spotify.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify_No_Resolve.yaml"
     path: ./rules/Spotify.yaml
     interval: 86400
 
@@ -154,7 +184,7 @@ rule-providers:
   Netflix:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/netflix.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix_Classical_No_Resolve.yaml"
     path: ./rules/Netflix.yaml
     interval: 86400
 
@@ -175,29 +205,22 @@ rule-providers:
   PayPal:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/paypal.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PayPal/PayPal_No_Resolve.yaml"
     path: ./rules/PayPal.yaml
     interval: 86400
 
   GoogleFCM:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/googlefcm.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleFCM/GoogleFCM_No_Resolve.yaml"
     path: ./rules/GoogleFCM.yaml
     interval: 86400
 
   Microsoft:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/microsoft.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Microsoft/Microsoft_No_Resolve.yaml"
     path: ./rules/Microsoft.yaml
-    interval: 86400
-
-  Crypto:
-    type: http
-    behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/crypto.list"
-    path: ./rules/Crypto.yaml
     interval: 86400
 
   YouTubeMusic:
@@ -210,7 +233,7 @@ rule-providers:
   YouTube:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/youtube.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml"
     path: ./rules/YouTube.yaml
     interval: 86400
 
@@ -231,21 +254,21 @@ rule-providers:
   Douyin:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/douyin.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin_No_Resolve.yaml"
     path: ./rules/Douyin.yaml
     interval: 86400
 
   TikTok:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/tiktok.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok_No_Resolve.yaml"
     path: ./rules/TikTok.yaml
     interval: 86400
 
   Google:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/google.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google_No_Resolve.yaml"
     path: ./rules/Google.yaml
     interval: 86400
 
@@ -259,26 +282,26 @@ rule-providers:
   CnCIDR:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/meta/cncidr.list"
+    url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/cnCIDR.yaml"
     path: ./rules/CnCIDR.yaml
     interval: 86400
 
   CN:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/meta/cn.list"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml"
     path: ./rules/CN.yaml
     interval: 86400
 
-  GFW:
+  Global:
     type: http
     behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/gfw.list"
-    path: ./rules/GFW.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml"
+    path: ./rules/Global.yaml
     interval: 86400
 
 # ---------------------------------------------------------
-# 3. 策略组配置 (Proxy Groups)
+# 4. 策略组配置 (Proxy Groups)
 # 对应你原配置文件中的 custom_proxy_group
 # ---------------------------------------------------------
 proxy-groups:
@@ -698,40 +721,3 @@ proxy-groups:
     interval: 600
     tolerance: 50
 
-# ---------------------------------------------------------
-# 4. 路由分流规则 (Rules)
-# 对应你原配置文件中的 ruleset
-# ---------------------------------------------------------
-rules:
-  - RULE-SET,GoogleVoice,📱 GoogleVoice
-  - RULE-SET,AI,👽 AI
-  - RULE-SET,TestFlight,🌍 Global服务
-  - RULE-SET,Apple,🍏 Apple服务
-  - RULE-SET,HttpDNS,🛡️ 隐私防护
-  - RULE-SET,Privacy,🛡️ 隐私防护
-  - RULE-SET,Hijacking,🛡️ 隐私防护
-  - RULE-SET,RejectAd,🛑 广告拦截
-  - RULE-SET,Adblock4limbo,🛑 广告拦截
-  - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Telegram,📱 电报消息
-  - RULE-SET,Samsung,📱 三星服务
-  - RULE-SET,Netflix,🎬 Netflix视频
-  - RULE-SET,Whatsapp,📘 Whatsapp
-  - RULE-SET,Instagram,📘 Instagram
-  - RULE-SET,PayPal,📘 PayPal
-  - RULE-SET,GoogleFCM,📢 谷歌FCM
-  - RULE-SET,Microsoft,📘 Microsoft服务
-  - RULE-SET,Crypto,💰 加密货币
-  - RULE-SET,YouTubeMusic,🎬 YouTube服务
-  - RULE-SET,YouTube,🎬 YouTube服务
-  - RULE-SET,Twitter,📘 X
-  - RULE-SET,WeChat,🇨🇳 微信
-  - RULE-SET,Douyin,🇨🇳 抖音
-  - RULE-SET,TikTok,🎬 TikTok
-  - RULE-SET,Google,🔍️ Google服务
-  - RULE-SET,Facebook,📘 Facebook
-  - RULE-SET,CnCIDR,🎯 国内直连
-  - RULE-SET,CN,🎯 国内直连
-  - RULE-SET,GFW,🌍 Global服务
-  - GEOIP,CN,DIRECT,no-resolve
-  - MATCH,🐟 漏网之鱼
