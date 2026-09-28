@@ -111,14 +111,14 @@ rule-providers:
 
   AI:
     type: http
-    behavior: classical
+    behavior: domain
     url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/ai.yaml"
     path: ./rules/AI.yaml
     interval: 86400
 
   Crypto:
     type: http
-    behavior: classical
+    behavior: domain
     url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/crypto.yaml"
     path: ./rules/Crypto.yaml
     interval: 86400
