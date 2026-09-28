@@ -1,7 +1,5 @@
 # =========================================================
 # Nikki / Clash Meta / Mihomo 配置文件
-# 说明：此文件包含完整的运行基础、规则集（rule-providers）、
-#      策略组（proxy-groups）以及路由规则（rules）。
 # =========================================================
 
 port: 7890
@@ -21,14 +19,16 @@ dns:
   fake-ip-range: 198.18.0.1/16
   respect-rules: true          # 优先遵循路由规则的分流逻辑
 
-  # 基础解析服务器（用于解析下面的 DoH 域名自身，建议用纯 IP）
+  # 基础解析服务器
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
-# 代理节点本身的域名解析（防止由于国外 DoH 还没建立好导致节点拉不起来）
+
+  # 代理节点本身的域名解析
   proxy-server-nameserver:
     - 223.5.5.5
     - 119.29.29.29
+
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://1.12.12.12/dns-query
@@ -43,17 +43,15 @@ tun:
 
 # ---------------------------------------------------------
 # 1. 机场订阅节点配置
-# 请将下面的 url 替换为你的真实机场订阅链接
 # ---------------------------------------------------------
 proxy-providers:
   Airport_Subscription:
     type: http
-    url: "https://cyberguard.cfd/api/v1/client/subscribe?token=eb3b359f1ee661f4bd045afab7318c87"   # 你的机场订阅链接
+    url: "https://cyberguard.cfd/api/v1/client/subscribe?token=eb3b359f1ee661f4bd045afab7318c87"
     interval: 86400
     path: ./providers/airport.yaml
     
-    # 🔽 【核心：全局排除正则】在此添加 exclude-filter
-    # 匹配到的节点将在全局直接被过滤丢弃，不会出现在任何策略组中
+    # 🔽 【核心：全局排除正则】
     exclude-filter: "(官网|网站|地址|过期|到期|剩余|流量|重置|联系|客服|群|订阅|续费|测试|专线|公告|提示)"
     
     health-check:
@@ -62,64 +60,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
 
 # ---------------------------------------------------------
-# 2. 路由分流规则 (Rules)
-# 对应你原配置文件中的 ruleset
-# ---------------------------------------------------------
-rules:
-  - RULE-SET,GoogleVoice,📱 GoogleVoice
-  - RULE-SET,AI_Services,👽 AI_Services
-  - RULE-SET,TestFlight,🌍 Global服务
-  - RULE-SET,Apple,🍏 Apple服务
-  - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
-  - RULE-SET,Privacy,🛡️ 隐私防护
-  - RULE-SET,Hijacking,🛡️ 隐私防护
-  - RULE-SET,Spotify,🎵 Spotify
-  - RULE-SET,Telegram,📱 电报消息
-  - RULE-SET,Samsung,📱 三星服务
-  - RULE-SET,Netflix,🎬 Netflix视频
-  - RULE-SET,Whatsapp,📘 Whatsapp
-  - RULE-SET,Instagram,📘 Instagram
-  - RULE-SET,PayPal,📘 PayPal
-  - RULE-SET,GoogleFCM,📢 谷歌FCM
-  - RULE-SET,Microsoft,📘 Microsoft服务
-  - RULE-SET,Crypto,💰 加密货币
-  - RULE-SET,YouTubeMusic,🎬 YouTube服务
-  - RULE-SET,YouTube,🎬 YouTube服务
-  - RULE-SET,Twitter,📘 X
-  - RULE-SET,WeChat,🇨🇳 微信
-  - RULE-SET,Douyin,🇨🇳 抖音
-  - RULE-SET,TikTok,🎬 TikTok
-  - RULE-SET,Google,🔍️ Google服务
-  - RULE-SET,Facebook,📘 Facebook
-  - RULE-SET,CnCIDR,🎯 国内直连
-  - RULE-SET,CN,🎯 国内直连
-  - RULE-SET,Global,🌍 Global服务
-  - GEOIP,CN,DIRECT,no-resolve
-  - MATCH,🐟 漏网之鱼
-
-# ---------------------------------------------------------
-
-# 1. 定义远程规则集来源
-rule_sets:
-  - name: AI_Services
-    type: http
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/ai.yaml"
-    path: ./rules/ai.yaml
-    interval: 86400
-    
-  - name: Crypto
-    type: http
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/crypto.yaml"
-    path: ./rules/crypto.yaml
-    interval: 86400
-
-
-
-
-
-# ---------------------------------------------------------
-# 3. 外部规则集配置 (Rule Providers)
-# 对应你原配置文件中的 ruleset 链接
+# 2. 外部规则集配置 (Rule Providers)
 # ---------------------------------------------------------
 rule-providers:
   GoogleVoice:
@@ -129,20 +70,19 @@ rule-providers:
     path: ./rules/GoogleVoice.yaml
     interval: 86400
 
-  #AI_Services:
-  #  type: http
-  #  behavior: AI_Services
-  #  url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/ai.yaml"
-  #  path: ./rules/AI_Services.yaml
-  #  interval: 86400
+AI_Services:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
+    path: ./rules/AI_Services.yaml
+    interval: 86400
 
-  #Crypto:
-  #  type: http
-  #  behavior: domain
-  #  url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/crypto.yaml"
-  #  path: ./rules/Crypto.yaml
-  #  interval: 86400
-    
+  Crypto:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cryptocurrency/Cryptocurrency_No_Resolve.yaml"
+    path: ./rules/Crypto.yaml
+    interval: 86400
 
   TestFlight:
     type: http
@@ -320,8 +260,7 @@ rule-providers:
     interval: 86400
 
 # ---------------------------------------------------------
-# 4. 策略组配置 (Proxy Groups)
-# 对应你原配置文件中的 custom_proxy_group
+# 3. 策略组配置 (Proxy Groups)
 # ---------------------------------------------------------
 proxy-groups:
   - name: "✈️ 节点选择"
@@ -740,3 +679,37 @@ proxy-groups:
     interval: 600
     tolerance: 50
 
+# ---------------------------------------------------------
+# 4. 路由分流规则 (Rules)
+# ---------------------------------------------------------
+rules:
+  - RULE-SET,GoogleVoice,📱 GoogleVoice
+  - RULE-SET,AI_Services,👽 AI_Services
+  - RULE-SET,TestFlight,🌍 Global服务
+  - RULE-SET,Apple,🍏 Apple服务
+  - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
+  - RULE-SET,Privacy,🛡️ 隐私防护
+  - RULE-SET,Hijacking,🛡️ 隐私防护
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Telegram,📱 电报消息
+  - RULE-SET,Samsung,📱 三星服务
+  - RULE-SET,Netflix,🎬 Netflix视频
+  - RULE-SET,Whatsapp,📘 Whatsapp
+  - RULE-SET,Instagram,📘 Instagram
+  - RULE-SET,PayPal,📘 PayPal
+  - RULE-SET,GoogleFCM,📢 谷歌FCM
+  - RULE-SET,Microsoft,📘 Microsoft服务
+  - RULE-SET,Crypto,💰 加密货币
+  - RULE-SET,YouTubeMusic,🎬 YouTube服务
+  - RULE-SET,YouTube,🎬 YouTube服务
+  - RULE-SET,Twitter,📘 X
+  - RULE-SET,WeChat,🇨🇳 微信
+  - RULE-SET,Douyin,🇨🇳 抖音
+  - RULE-SET,TikTok,🎬 TikTok
+  - RULE-SET,Google,🔍️ Google服务
+  - RULE-SET,Facebook,📘 Facebook
+  - RULE-SET,CnCIDR,🎯 国内直连
+  - RULE-SET,CN,🎯 国内直连
+  - RULE-SET,Global,🌍 Global服务
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,🐟 漏网之鱼
