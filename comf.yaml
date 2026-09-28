@@ -707,7 +707,6 @@ rules:
   - RULE-SET,AI,👽 AI
   - RULE-SET,TestFlight,🌍 Global服务
   - RULE-SET,Apple,🍏 Apple服务
-  - RULE-SET,AppleProxy,🌍 Global服务
   - RULE-SET,HttpDNS,🛡️ 隐私防护
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
