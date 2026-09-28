@@ -73,7 +73,6 @@ rules:
   - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
-  - RULE-SET,RejectAd,🛑 广告拦截
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Telegram,📱 电报消息
   - RULE-SET,Samsung,📱 三星服务
