@@ -240,7 +240,7 @@ rule-providers:
 
   CnCIDR:
     type: http
-    behavior: ipcidr
+    behavior: classical
     url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/cnCIDR.yaml"
     path: ./rules/cnCIDR.yaml
     interval: 86400
