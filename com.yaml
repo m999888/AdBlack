@@ -227,8 +227,8 @@ rule-providers:
   Google:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/loon/google.list"
-    path: ./rules/Google.list
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google_No_Resolve.yaml"
+    path: ./rules/Google.yaml
     interval: 86400
 
   Facebook:
@@ -240,9 +240,9 @@ rule-providers:
 
   CnCIDR:
     type: http
-    behavior: classical
+    behavior: ipcidr
     url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/cnCIDR.yaml"
-    path: ./rules/cncidr.list
+    path: ./rules/cnCIDR.yaml
     interval: 86400
 
   CN:
