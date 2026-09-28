@@ -19,12 +19,20 @@ dns:
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  respect-rules: true          # 优先遵循路由规则的分流逻辑
+
+  # 基础解析服务器（用于解析下面的 DoH 域名自身，建议用纯 IP）
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
+# 代理节点本身的域名解析（防止由于国外 DoH 还没建立好导致节点拉不起来）
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
+
 
 # TUN 虚拟网卡设置 (Nikki 推荐开启)
 tun:
@@ -86,12 +94,6 @@ rule-providers:
     path: ./rules/Apple.yaml
     interval: 86400
 
-  AppleProxy:
-    type: http
-    behavior: classical
-    url: "https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/meta/apple-proxy.list"
-    path: ./rules/AppleProxy.yaml
-    interval: 86400
 
   HttpDNS:
     type: http
