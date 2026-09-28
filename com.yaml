@@ -240,7 +240,7 @@ rule-providers:
 
   CnCIDR:
     type: http
-    behavior: ipcidr
+    behavior: classical
     url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/loon/cncidr.list"
     path: ./rules/cncidr.list
     interval: 86400
