@@ -67,7 +67,7 @@ proxy-providers:
 # ---------------------------------------------------------
 rules:
   - RULE-SET,GoogleVoice,📱 GoogleVoice
-  - RULE-SET,AI,👽 AI
+  - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,TestFlight,🌍 Global服务
   - RULE-SET,Apple,🍏 Apple服务
   - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
@@ -98,6 +98,26 @@ rules:
   - MATCH,🐟 漏网之鱼
 
 # ---------------------------------------------------------
+
+# 1. 定义远程规则集来源
+rule_sets:
+  - name: AI_Services
+    type: http
+    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/ai.yaml"
+    path: ./rules/AI_Services.yaml
+    interval: 86400
+    
+  - name: Crypto
+    type: http
+    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/crypto.yaml"
+    path: ./rules/crypto.yaml
+    interval: 86400
+
+
+
+
+
+# ---------------------------------------------------------
 # 3. 外部规则集配置 (Rule Providers)
 # 对应你原配置文件中的 ruleset 链接
 # ---------------------------------------------------------
@@ -109,19 +129,19 @@ rule-providers:
     path: ./rules/GoogleVoice.yaml
     interval: 86400
 
-  AI:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/ai.yaml"
-    path: ./rules/AI.yaml
-    interval: 86400
+  #AI_Services:
+  #  type: http
+  #  behavior: AI_Services
+  #  url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/ai.yaml"
+  #  path: ./rules/AI_Services.yaml
+  #  interval: 86400
 
-  Crypto:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/crypto.yaml"
-    path: ./rules/Crypto.yaml
-    interval: 86400
+  #Crypto:
+  #  type: http
+  #  behavior: domain
+  #  url: "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/egern/crypto.yaml"
+  #  path: ./rules/Crypto.yaml
+  #  interval: 86400
     
 
   TestFlight:
@@ -280,8 +300,8 @@ rule-providers:
 
   CnCIDR:
     type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/cnCIDR.yaml"
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/cnCIDR.yaml?token=GHSAT0AAAAAAEKGPNS6BX4Q3S2NS4CTHJDI2V2FXAQ"
     path: ./rules/CnCIDR.yaml
     interval: 86400
 
@@ -538,7 +558,7 @@ proxy-groups:
       - "🇰🇷 韩国节点"
       - "🚀 手动切换"
 
-  - name: "👽 AI"
+  - name: "👽 AI_Services"
     type: select
     proxies:
       - "👽 AI节点"
