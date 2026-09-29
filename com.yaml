@@ -56,6 +56,7 @@ dns:
 external-controller-pipe: \\.\pipe\verge-mihomo-sidecar-release-173d532e85ff0d0202bdc38d4b0b0cd4ee33349fe3265fcdbd2849eafac8b00f
 profile:
   store-selected: true
+
 # ---------------------------------------------------------
 # 高性能 TUN 虚拟网卡配置
 # ---------------------------------------------------------
@@ -679,38 +680,56 @@ rule-providers:
     path: ./rules/gwf.yaml
     interval: 86400
 
+# =========================================================
+# 规则匹配（自上而下匹配，最顶部具有最高优先级）
+# =========================================================
 rules:
-- RULE-SET,GoogleVoice,📱 GoogleVoice
-- RULE-SET,AI_Services,👽 AI_Services
-- RULE-SET,TestFlight,🌍 Global服务
-- RULE-SET,Apple,🍏 Apple服务
-- RULE-SET,BlockHttpDNS,🛡️ 隐私防护
-- RULE-SET,Privacy,🛡️ 隐私防护
-- RULE-SET,Hijacking,🛡️ 隐私防护
-- RULE-SET,Spotify,🎵 Spotify
-- RULE-SET,Telegram,📱 电报消息
-- RULE-SET,Samsung,📱 三星服务
-- RULE-SET,Netflix,🎬 Netflix视频
-- RULE-SET,Whatsapp,📘 Whatsapp
-- RULE-SET,Instagram,📘 Instagram
-- RULE-SET,PayPal,📘 PayPal
-- RULE-SET,GoogleFCM,📢 谷歌FCM
-- RULE-SET,Microsoft,📘 Microsoft服务
-- RULE-SET,Crypto,💰 加密货币
-- RULE-SET,YouTubeMusic,🎬 YouTube服务
-- RULE-SET,YouTube,🎬 YouTube服务
-- RULE-SET,Twitter,📘 X
-- RULE-SET,WeChat,🇨🇳 微信
-- RULE-SET,Douyin,🇨🇳 抖音
-- RULE-SET,TikTok,🎬 TikTok
-- RULE-SET,Google,🔍️ Google服务
-- RULE-SET,Facebook,📘 Facebook
-- RULE-SET,gwf,🌍 Global服务
-- RULE-SET,CnCIDR,🎯 国内直连
-- RULE-SET,CN,🎯 国内直连
-- RULE-SET,Global,🌍 Global服务
-- GEOIP,CN,DIRECT,no-resolve
-- MATCH,🐟 漏网之鱼
+  # 1. 优先拦截 STUN / WebRTC 泄露探测
+  - DST-PORT,3478,REJECT
+  - DST-PORT,19302,REJECT
+  - DOMAIN-KEYWORD,stun,REJECT
+  - DOMAIN-KEYWORD,webrtc,REJECT
+
+  # 2. 其它应用及服务规则
+  - RULE-SET,GoogleVoice,📱 GoogleVoice
+  - RULE-SET,AI_Services,👽 AI_Services
+  - RULE-SET,TestFlight,🌍 Global服务
+  - RULE-SET,Apple,🍏 Apple服务
+  - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
+  - RULE-SET,Privacy,🛡️ 隐私防护
+  - RULE-SET,Hijacking,🛡️ 隐私防护
+  - RULE-SET,Spotify,🎵 Spotify
+  - RULE-SET,Telegram,📱 电报消息
+  - RULE-SET,Samsung,📱 三星服务
+  - RULE-SET,Netflix,🎬 Netflix视频
+  - RULE-SET,Whatsapp,📘 Whatsapp
+  - RULE-SET,Instagram,📘 Instagram
+  - RULE-SET,PayPal,📘 PayPal
+  - RULE-SET,GoogleFCM,📢 谷歌FCM
+  - RULE-SET,Microsoft,📘 Microsoft服务
+  - RULE-SET,Crypto,💰 加密货币
+  - RULE-SET,YouTubeMusic,🎬 YouTube服务
+  - RULE-SET,YouTube,🎬 YouTube服务
+  - RULE-SET,Twitter,📘 X
+  - RULE-SET,WeChat,🇨🇳 微信
+  - RULE-SET,Douyin,🇨🇳 抖音
+  - RULE-SET,TikTok,🎬 TikTok
+  - RULE-SET,Google,🔍️ Google服务
+  - RULE-SET,Facebook,📘 Facebook
+  
+  # 3. 代理规则
+  - RULE-SET,gwf,🌍 Global服务
+  - RULE-SET,Global,🌍 Global服务
+
+  # 4. 直连规则
+  - RULE-SET,CnCIDR,🎯 国内直连
+  - RULE-SET,CN,🎯 国内直连
+  - GEOIP,CN,DIRECT,no-resolve
+
+  # 5. 兜底策略
+  - MATCH,🐟 漏网之鱼
+
+
 
 
 
