@@ -705,10 +705,10 @@ rules:
 - RULE-SET,TikTok,🎬 TikTok
 - RULE-SET,Google,🔍️ Google服务
 - RULE-SET,Facebook,📘 Facebook
+- RULE-SET,gwf,🌍 Global服务
 - RULE-SET,CnCIDR,🎯 国内直连
 - RULE-SET,CN,🎯 国内直连
 - RULE-SET,Global,🌍 Global服务
-- RULE-SET,gwf,🌍 Global服务
 - GEOIP,CN,DIRECT,no-resolve
 - MATCH,🐟 漏网之鱼
 
