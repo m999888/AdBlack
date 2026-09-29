@@ -1,4 +1,9 @@
-domain-suffix, jable.tv
-domain-suffix, missav.ws
-domain-keyword, jable
-domain-keyword, missav
+DOMAIN-suffix, jable.tv
+DOMAIN-suffix, missav.ws
+DOMAIN-keyword, jable
+DOMAIN-keyword, missav
+# 1. 优先拦截 STUN / WebRTC 泄露探测
+DEST-PORT,3478
+DEST-PORT,19302
+DOMAIN-KEYWORD,stun
+DOMAIN-KEYWORD,webrtc
