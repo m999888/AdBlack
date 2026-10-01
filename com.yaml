@@ -301,6 +301,12 @@ proxy-groups:
   - 🎮 游戏节点
   - DIRECT
 
+- name: 🎮 游戏节点
+  type: select
+  use:
+  - Airport_Subscription
+  filter: (IPLC|IEPL|专线)
+
 - name: 🎬 TikTok
   type: select
   proxies:
@@ -405,12 +411,6 @@ proxy-groups:
   type: select
   proxies:
   - REJECT
-
-- name: 🎮 游戏节点
-  type: select
-  use:
-  - Airport_Subscription
-  filter: (IPLC|IEPL|专线)
 
 - name: 🇭🇰 香港节点
   type: url-test
