@@ -73,7 +73,7 @@ tun:
   mtu: 1500
   route-exclude-address: []
 
-proxies:
+proxies: []
 proxy-providers:                     # 在此处填写你的代理节点信息，或通过 Clash 客户端自动合并 Profile
   Airport_Subscription:
     type: http
@@ -677,10 +677,11 @@ rules:
   - DST-PORT,19302,REJECT
   - DOMAIN-KEYWORD,stun,REJECT
   - DOMAIN-KEYWORD,webrtc,REJECT
-  - DOMAIN-SUFFIX,jable.tv
-  - DOMAIN-suffix,missav.ws
-  - DOMAIN-keyword,jable
-  - DOMAIN-keyword,missav
+  #######################
+  - DOMAIN-SUFFIX,jable.tv,REJECT
+  - DOMAIN-suffix,missav.ws,REJECT
+  - DOMAIN-keyword,jable,REJECT
+  - DOMAIN-keyword,missav,REJECT
 
   # 2. 其它应用及服务规则
   - RULE-SET,GoogleVoice,📱 GoogleVoice
