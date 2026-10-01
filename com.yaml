@@ -103,7 +103,6 @@ proxy-groups:
   - 🚀 手动切换
   - ⚡️其它节点
   - ⚡️其它节点（手选）
-  - DIRECT
 
 - name: 🚀 手动切换
   type: select
@@ -155,8 +154,16 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
-  - 🚀 手动切换
-  - DIRECT
+
+- name: 👽 AI_Services
+  type: select
+  proxies:
+  - 👽 AI节点
+  - 👽 AI其它节点
+  - 🇺🇲 美国节点
+  - 🇨🇳 台湾节点
+  - 🇯🇵 日本节点
+  - 🇸🇬 新加坡节点
 
 - name: 🎬 YouTube服务
   type: select
@@ -168,21 +175,6 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
-  - 🚀 手动切换
-  - DIRECT
-
-- name: 📱 GoogleVoice
-  type: select
-  proxies:
-  - 🇺🇲 美国节点
-  - ✈️ 节点选择
-  - 🇭🇰 香港节点
-  - 🇸🇬 新加坡节点
-  - 🇯🇵 日本节点
-  - 🇨🇳 台湾节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-  - DIRECT
 
 - name: 🔍️ Google服务
   type: select
@@ -194,7 +186,6 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
-  - 🚀 手动切换
 
 - name: 📘 Microsoft服务
   type: select
@@ -207,7 +198,6 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
-  - 🚀 手动切换
 
 - name: 📘 Instagram
   type: select
@@ -275,16 +265,44 @@ proxy-groups:
   - ✈️ 节点选择
   - DIRECT
 
-- name: 📱 三星服务
+- name: 👽 AI节点
+  type: url-test
+  use:
+  - Airport_Subscription
+  filter: (IEPL 1.7|SG1-HY2|SG2-HY2)
+  url: http://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 50
+  
+- name: 👽 AI其它节点
+  type: url-test
+  use:
+  - Airport_Subscription
+  filter: (SG|TW|JP)
+  url: http://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 50
+
+- name: 🌍 Global服务
   type: select
   proxies:
-  - DIRECT
+  - ✈️ 节点选择
+  - ⚙️ 自动策略
   - 🇭🇰 香港节点
+  - 🇨🇳 台湾节点
   - 🇸🇬 新加坡节点
   - 🇯🇵 日本节点
   - 🇺🇲 美国节点
-  - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
+
+- name: 🎬 TikTok
+  type: select
+  proxies:
+  - 🇺🇲 美国节点
+  - 🇨🇳 台湾节点
+  - 🇯🇵 日本节点
+  - 🇰🇷 韩国节点
+  - 🚀 手动切换
 
 - name: 🍏 Apple服务
   type: select
@@ -299,38 +317,16 @@ proxy-groups:
   - 🇰🇷 韩国节点
   - 🚀 手动切换
 
-- name: 🌍 Global服务
+- name: 📱 三星服务
   type: select
   proxies:
-  - ✈️ 节点选择
-  - ⚙️ 自动策略
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇸🇬 新加坡节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
   - DIRECT
-
-- name: 🎬 TikTok
-  type: select
-  proxies:
-  - 🇺🇲 美国节点
-  - 🇨🇳 台湾节点
-  - 🇯🇵 日本节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-
-- name: 👽 AI_Services
-  type: select
-  proxies:
-  - 👽 AI节点
-  - 🇺🇲 美国节点
-  - 🇨🇳 台湾节点
-  - 🇯🇵 日本节点
+  - 🇭🇰 香港节点
   - 🇸🇬 新加坡节点
-  - 👽 AI其它节点
+  - 🇯🇵 日本节点
+  - 🇺🇲 美国节点
+  - 🇨🇳 台湾节点
+  - 🇰🇷 韩国节点
 
 - name: 🎯 国内直连
   type: select
@@ -362,7 +358,19 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
+
+- name: 📱 GoogleVoice
+  type: select
+  proxies:
+  - 🇺🇲 美国节点
+  - ✈️ 节点选择
+  - 🇭🇰 香港节点
+  - 🇸🇬 新加坡节点
+  - 🇯🇵 日本节点
+  - 🇨🇳 台湾节点
+  - 🇰🇷 韩国节点
   - 🚀 手动切换
+  - DIRECT
 
 - name: 💿 奈飞节点
   type: select
@@ -386,37 +394,17 @@ proxy-groups:
   type: select
   proxies:
   - REJECT
-  - DIRECT
 
 - name: 🛑 广告拦截
   type: select
   proxies:
   - REJECT
-  - DIRECT
 
 - name: 🎮 游戏节点
   type: select
   use:
   - Airport_Subscription
   filter: (IPLC|IEPL|专线)
-
-- name: 👽 AI其它节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (IEPL 1.7|SG1-HY2|SG2-HY2)
-  url: http://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
-
-- name: 👽 AI节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (SG|TW|JP)
-  url: http://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
 
 - name: 🇭🇰 香港节点
   type: url-test
@@ -689,6 +677,10 @@ rules:
   - DST-PORT,19302,REJECT
   - DOMAIN-KEYWORD,stun,REJECT
   - DOMAIN-KEYWORD,webrtc,REJECT
+  - DOMAIN-SUFFIX,jable.tv
+  - DOMAIN-suffix,missav.ws
+  - DOMAIN-keyword,jable
+  - DOMAIN-keyword,missav
 
   # 2. 其它应用及服务规则
   - RULE-SET,GoogleVoice,📱 GoogleVoice
