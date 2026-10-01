@@ -295,6 +295,12 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇰🇷 韩国节点
 
+- name: 🎮 Game
+  type: select
+  proxies:
+  - 🎮 游戏节点
+  - DIRECT
+
 - name: 🎬 TikTok
   type: select
   proxies:
@@ -667,7 +673,12 @@ rule-providers:
     url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/gwf.yaml"
     path: ./rules/gwf.yaml
     interval: 86400
-
+  Game:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/Game_No_Resolve.yaml"
+    path: ./rules/Game.yaml
+    interval: 86400
 # =========================================================
 # 规则匹配（自上而下匹配，最顶部具有最高优先级）
 # =========================================================
@@ -684,6 +695,7 @@ rules:
   - DOMAIN-keyword,missav,REJECT
 
   # 2. 其它应用及服务规则
+  - RULE-SET,Game,🎮 Game
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,TestFlight,🌍 Global服务
