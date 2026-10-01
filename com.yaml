@@ -679,6 +679,12 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/Game_No_Resolve.yaml"
     path: ./rules/Game.yaml
     interval: 86400
+  Adblock4limbo:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/limbopro/Adblock4limbo/refs/heads/main/Clash/rule/Adblock4limbo.yaml"
+    path: ./rules/Adblock4limbo.yaml
+    interval: 86400
 # =========================================================
 # 规则匹配（自上而下匹配，最顶部具有最高优先级）
 # =========================================================
@@ -700,6 +706,7 @@ rules:
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,TestFlight,🌍 Global服务
   - RULE-SET,Apple,🍏 Apple服务
+  - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
