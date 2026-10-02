@@ -84,7 +84,7 @@ proxy-providers:                     # 在此处填写你的代理节点信息�
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
 
 proxy-groups:
 - name: ✈️ 节点选择
@@ -112,7 +112,7 @@ proxy-groups:
   type: url-test
   use:
   - Airport_Subscription
-  url: https://www.gstatic.com/generate_204
+  url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
 
