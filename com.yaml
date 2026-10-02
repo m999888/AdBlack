@@ -640,7 +640,7 @@ rule-providers:
   Google:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google_No_Resolve.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/Google.yaml
     path: ./rules/Google.yaml
     interval: 86400
   Facebook:
@@ -670,20 +670,26 @@ rule-providers:
   gwf:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/gwf.yaml"
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/gwf.yaml
     path: ./rules/gwf.yaml
     interval: 86400
   Game:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/Game_No_Resolve.yaml"
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/games.yaml
     path: ./rules/Game.yaml
     interval: 86400
   Adblock4limbo:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/limbopro/Adblock4limbo/refs/heads/main/Clash/rule/Adblock4limbo.yaml"
+    url: https://raw.githubusercontent.com/limbopro/Adblock4limbo/refs/heads/main/Clash/rule/Adblock4limbo.yaml
     path: ./rules/Adblock4limbo.yaml
+    interval: 86400
+  rejectAd:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/rejectAd.list.yaml
+    path: ./rules/rejectAd.yaml
     interval: 86400
 # =========================================================
 # 规则匹配（自上而下匹配，最顶部具有最高优先级）
@@ -702,10 +708,12 @@ rules:
 
   # 2. 其它应用及服务规则
   - RULE-SET,Game,🎮 Game
+
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,TestFlight,🌍 Global服务
   - RULE-SET,Apple,🍏 Apple服务
+  - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
   - RULE-SET,Privacy,🛡️ 隐私防护
@@ -740,7 +748,6 @@ rules:
 
   # 5. 兜底策略
   - MATCH,🐟 漏网之鱼
-
 
 
 
