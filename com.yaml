@@ -112,7 +112,7 @@ proxy-groups:
   type: url-test
   use:
   - Airport_Subscription
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
 
