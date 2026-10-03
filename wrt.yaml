@@ -22,9 +22,9 @@ dns:
 # 2. 补上此项！【代理节点域名专用 DNS】（彻底切断死锁/断网的核心）
   proxy-server-nameserver:
   - 223.5.5.5
-  - 119.29.29.29
+  - 1.12.12.12
   direct-nameserver-follow-policy: true
-  fake-ip-filter:
+fake-ip-filter:
   - '*.lan'
   - '*.local'
   - '*.arpa'
@@ -35,7 +35,9 @@ dns:
   - '+.market.xiaomi.com'
   - localhost.ptlogin2.qq.com
   - '*.msftncsi.com'
-  - www.msftconnecttest.com
+  - *.mask.icloud.com'
+  - '*.mask-h2.icloud.com'
+  - '*.mask-api.icloud.com'
   fake-ip-filter-mode: blacklist
   fake-ip-range6: fdfe:dcba:9876::1/64
   fallback-filter:
