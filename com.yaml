@@ -20,17 +20,55 @@ dns:
   - 1.12.12.12
   direct-nameserver-follow-policy: true
   fake-ip-filter:
-  - '*.lan'
-  - '*.local'
-  - '*.arpa'
-  - 'ntp.*.com'
-  - 'time.*.com'
-  - '+.market.xiaomi.com'
-  - localhost.ptlogin2.qq.com
-  - '*.msftncsi.com'
-  - '*.mask.icloud.com'
-  - '*.mask-h2.icloud.com'
-  - '*.mask-api.icloud.com'
+- '*.lan'
+    - '*.local'
+    - '*.arpa'
+    - 'ntp.*.com'
+    - 'time.*.com'
+    - '+.market.xiaomi.com'
+    - 'localhost.ptlogin2.qq.com'
+    - '*.msftncsi.com'
+    - '*.mask.icloud.com'
+    - '*.mask-h2.icloud.com'
+    - '*.mask-api.icloud.com'
+    # --- Apple 关键服务排除 ---
+    # 1. Wi-Fi 弹窗与网络连通性检测（最重要，防止死锁）
+    - 'captive.apple.com'
+    - '*.apple-dns.net'
+    # 2. Apple 设备消息与系统推送（APNs）
+    - 'push.apple.com'
+    - '*.push.apple.com'
+    # 3. 苹果安全与证书验证（直连提高系统与 App 响应速度）
+    - 'ocsp.apple.com'
+    - 'ocsp2.apple.com'
+    - 'valid.apple.com'
+    # --- 建议补充：1. 系统与网络连通性检测（NCSI/Captive Portal）---
+    # 防止 Windows/Android 显示“无网络连接”或跳出伪连通性弹窗
+    - '*.msftconnecttest.com'
+    - 'connectivitycheck.gstatic.com'
+    - 'detectportal.firefox.com'
+    - 'cp.cloudflare.com'
+    # --- 建议补充：2. 常见路由器后台与局域网域名 ---
+    # 确保直接访问路由器管理界面时不走 Fake-IP 映射
+    - '+.router.asus.com'
+    - '+.routerlogin.net'
+    - '+.tplinkwifi.net'
+    - '+.miwifi.com'
+    - '+.peiluyou.com'
+    - '+.fitbox.home'
+    # --- 建议补充：3. 游戏联机与 P2P / STUN 打洞服务 ---
+    # 游戏 UDP 直联必须拿到真实 IP，否则可能导致无法匹配、语音联机失败或 NAT 类型受限
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.xboxlive.com'
+    - '+.turn.*.*'
+    - '+.turn.*.*.*'
+    # --- 建议补充：4. 局域网服务与设备发现 ---
+    - 'localhost.*'
+    - '*.home.arpa'
+    - '+.plex.direct'           # Plex 局域网直连依赖
+    - '+.local.mesh'
   fake-ip-filter-mode: blacklist
   fake-ip-range6: fdfe:dcba:9876::1/64
   fallback-filter:
@@ -47,8 +85,8 @@ dns:
   nameserver:
   - https://1.12.12.12/dns-query
   - https://223.5.5.5/dns-query
-  - https://1.1.1.1/dns-query#✈️ 节点选择
-  - https://8.8.8.8/dns-query#✈️ 节点选择
+  - 'https://1.1.1.1/dns-query#✈️ 节点选择'
+  - 'https://8.8.8.8/dns-query#✈️ 节点选择'
   prefer-h3: true
   proxy-server-nameserver:
   - https://1.12.12.12/dns-query
@@ -65,7 +103,7 @@ profile:
 tun:
   enable: true
   stack: mixed                 # 推荐 mixed，兼顾速度与稳定性
-  device: Mihomo
+  device: Win
   auto-route: true
   auto-detect-interface: true
   strict-route: true           # 开启严格路由，防止流量绕过代理泄露
@@ -74,7 +112,6 @@ tun:
     - "tcp://any:53"
   mtu: 1500
   route-exclude-address: []
-
 proxies: []
 proxy-providers:                     # 在此处填写你的代理节点信息，或通过 Clash 客户端自动合并 Profile
   Airport_Subscription:
@@ -115,7 +152,7 @@ proxy-groups:
   type: url-test
   use:
   - Airport_Subscription
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
 
@@ -272,7 +309,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (IEPL 1.7|SG1-HY2|SG2-HY2)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
   
@@ -281,7 +318,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (SG|TW|JP)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -419,7 +456,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (港|HK|Hong Kong)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -428,7 +465,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (新加坡|坡|狮城|SG|Singapore)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -437,7 +474,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -446,7 +483,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 900
   tolerance: 150
 
@@ -455,7 +492,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (台|新北|彰化|TW|Taiwan)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -464,7 +501,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (KR|Korea|KOR|首尔|韩|韓)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -473,7 +510,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -487,7 +524,7 @@ proxy-groups:
   type: fallback
   use:
   - Airport_Subscription
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
@@ -496,7 +533,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   filter: (负载|均衡)
-  url: http://www.gstatic.com/generate_204
+  url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
 
