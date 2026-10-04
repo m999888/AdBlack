@@ -19,80 +19,80 @@ dns:
   - 223.5.5.5
   - 1.12.12.12
   direct-nameserver-follow-policy: true
-  fake-ip-filter:
-- '*.lan'
-    - '*.local'
-    - '*.arpa'
-    - 'ntp.*.com'
-    - 'time.*.com'
-    - '+.market.xiaomi.com'
-    - 'localhost.ptlogin2.qq.com'
-    - '*.msftncsi.com'
-    - '*.mask.icloud.com'
-    - '*.mask-h2.icloud.com'
-    - '*.mask-api.icloud.com'
+fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - '*.arpa'
+  - 'ntp.*.com'
+  - 'time.*.com'
+  - '+.market.xiaomi.com'
+  - 'localhost.ptlogin2.qq.com'
+  - '*.msftncsi.com'
+  - '*.mask.icloud.com'
+  - '*.mask-h2.icloud.com'
+  - '*.mask-api.icloud.com'
     # --- Apple 关键服务排除 ---
     # 1. Wi-Fi 弹窗与网络连通性检测（最重要，防止死锁）
-    - 'captive.apple.com'
-    - '*.apple-dns.net'
+  - 'captive.apple.com'
+  - '*.apple-dns.net'
     # 2. Apple 设备消息与系统推送（APNs）
-    - 'push.apple.com'
-    - '*.push.apple.com'
+  - 'push.apple.com'
+  - '*.push.apple.com'
     # 3. 苹果安全与证书验证（直连提高系统与 App 响应速度）
-    - 'ocsp.apple.com'
-    - 'ocsp2.apple.com'
-    - 'valid.apple.com'
+  - 'ocsp.apple.com'
+  - 'ocsp2.apple.com'
+  - 'valid.apple.com'
     # --- 建议补充：1. 系统与网络连通性检测（NCSI/Captive Portal）---
     # 防止 Windows/Android 显示“无网络连接”或跳出伪连通性弹窗
-    - '*.msftconnecttest.com'
-    - 'connectivitycheck.gstatic.com'
-    - 'detectportal.firefox.com'
-    - 'cp.cloudflare.com'
+  - '*.msftconnecttest.com'
+  - 'connectivitycheck.gstatic.com'
+  - 'detectportal.firefox.com'
+  - 'cp.cloudflare.com'
     # --- 建议补充：2. 常见路由器后台与局域网域名 ---
     # 确保直接访问路由器管理界面时不走 Fake-IP 映射
-    - '+.router.asus.com'
-    - '+.routerlogin.net'
-    - '+.tplinkwifi.net'
-    - '+.miwifi.com'
-    - '+.peiluyou.com'
-    - '+.fitbox.home'
+  - '+.router.asus.com'
+  - '+.routerlogin.net'
+  - '+.tplinkwifi.net'
+  - '+.miwifi.com'
+  - '+.peiluyou.com'
+  - '+.fitbox.home'
     # --- 建议补充：3. 游戏联机与 P2P / STUN 打洞服务 ---
     # 游戏 UDP 直联必须拿到真实 IP，否则可能导致无法匹配、语音联机失败或 NAT 类型受限
-    - '+.stun.*.*'
-    - '+.stun.*.*.*'
-    - '+.stun.*.*.*.*'
-    - '+.xboxlive.com'
-    - '+.turn.*.*'
-    - '+.turn.*.*.*'
+  - '+.stun.*.*'
+  - '+.stun.*.*.*'
+  - '+.stun.*.*.*.*'
+  - '+.xboxlive.com'
+  - '+.turn.*.*'
+  - '+.turn.*.*.*'
     # --- 建议补充：4. 局域网服务与设备发现 ---
-    - 'localhost.*'
-    - '*.home.arpa'
-    - '+.plex.direct'           # Plex 局域网直连依赖
-    - '+.local.mesh'
-  fake-ip-filter-mode: blacklist
-  fake-ip-range6: fdfe:dcba:9876::1/64
-  fallback-filter:
-    domain:
-    - +.google.com
-    - +.facebook.com
-    - +.youtube.com
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-    - 240.0.0.0/4
-    - 0.0.0.0/32
-  listen: :53
-  nameserver:
-  - https://1.12.12.12/dns-query
-  - https://223.5.5.5/dns-query
-  - 'https://1.1.1.1/dns-query#✈️ 节点选择'
-  - 'https://8.8.8.8/dns-query#✈️ 节点选择'
-  prefer-h3: true
-  proxy-server-nameserver:
-  - https://1.12.12.12/dns-query
-  - https://223.5.5.5/dns-query
-  respect-rules: true
-  use-system-hosts: false
+  - 'localhost.*'
+  - '*.home.arpa'
+  - '+.plex.direct'           # Plex 局域网直连依赖
+  - '+.local.mesh'
+fake-ip-filter-mode: blacklist
+fake-ip-range6: fdfe:dcba:9876::1/64
+fallback-filter:
+  domain:
+  - +.google.com
+  - +.facebook.com
+  - +.youtube.com
+  geoip: true
+  geoip-code: CN
+  ipcidr:
+  - 240.0.0.0/4
+  - 0.0.0.0/32
+listen: :53
+nameserver:
+- https://1.12.12.12/dns-query
+- https://223.5.5.5/dns-query
+- 'https://1.1.1.1/dns-query#✈️ 节点选择'
+- 'https://8.8.8.8/dns-query#✈️ 节点选择'
+prefer-h3: true
+proxy-server-nameserver:
+- https://1.12.12.12/dns-query
+- https://223.5.5.5/dns-query
+respect-rules: true
+use-system-hosts: false
 external-controller-pipe: \\.\pipe\verge-mihomo-sidecar-release-173d532e85ff0d0202bdc38d4b0b0cd4ee33349fe3265fcdbd2849eafac8b00f
 profile:
   store-selected: true
