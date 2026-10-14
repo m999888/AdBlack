@@ -17,7 +17,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   default-nameserver:
   - 223.5.5.5
-  - 1.12.12.12
+  - 119.29.29.29
   direct-nameserver-follow-policy: true
 fake-ip-filter:
     # 1. 局域网与本地设备
