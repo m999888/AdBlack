@@ -81,7 +81,7 @@ proxy-providers:                     # 在此处填写你的代理节点信息�
   Airport_Subscription:
     type: http
     # 请在下方填入你重置后的新订阅链接
-    url: "https://cyberguard.cfd/api/v1/client/subscribe?token=eb3b359f1ee661f4bd045afab7318c87"
+    url: "订阅链接"
     interval: 86400
     path: ./providers/airport.yaml
     exclude-filter: (官网|网站|地址|过期|到期|剩余|流量|重置|联系|客服|群|订阅|续费|测试|专线|公告|提示)
