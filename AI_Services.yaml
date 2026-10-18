@@ -214,7 +214,6 @@ payload:
   - DOMAIN-SUFFIX,zed.dev
 
   # ================= DOMAIN-KEYWORD (域名关键字) =================
-  - DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
   - DOMAIN-KEYWORD,anthropic
   - DOMAIN-KEYWORD,claude
   - DOMAIN-KEYWORD,labs.google
