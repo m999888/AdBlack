@@ -113,7 +113,7 @@ tun:
     - "tcp://any:53"
   mtu: 1500
   route-exclude-address: []
-proxies: []
+
 proxy-groups:
 - name: ✈️ 节点选择
   type: select
@@ -134,12 +134,12 @@ proxy-groups:
 - name: 🚀 手动切换
   type: select
   use:
-  - Airport_Subscription
+
 
 - name: ⚙️ 自动策略
   type: url-test
   use:
-  - Airport_Subscription
+
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
@@ -289,8 +289,7 @@ proxy-groups:
 - name: 👽 AI节点
   type: url-test
   use:
-  - Airport_Subscription
-  - Airport_2
+
   filter: (IEPL 1.7|SG1-HY2|SG2-HY2)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -299,8 +298,7 @@ proxy-groups:
 - name: 👽 AI其它节点
   type: url-test
   use:
-  - Airport_Subscription
-  - Airport_2
+
   filter: (SG|TW|JP)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -333,7 +331,7 @@ proxy-groups:
 - name: 🎮 游戏节点
   type: select
   use:
-  - Airport_Subscription
+
   filter: (IPLC|IEPL|专线)
 
 - name: 🎬 TikTok
@@ -416,7 +414,7 @@ proxy-groups:
 - name: 💿 奈飞节点
   type: select
   use:
-  - Airport_Subscription
+
   filter: (NF|奈飞|解锁|Netflix|NETFLIX|Media|UNLOCK)
 
 - name: 🇨🇳 抖音
@@ -444,7 +442,7 @@ proxy-groups:
 - name: 🇭🇰 香港节点
   type: url-test
   use:
-  - Airport_Subscription
+
   filter: (港|HK|Hong Kong)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -453,7 +451,7 @@ proxy-groups:
 - name: 🇸🇬 新加坡节点
   type: url-test
   use:
-  - Airport_Subscription
+
   filter: (新加坡|坡|狮城|SG|Singapore)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -462,7 +460,7 @@ proxy-groups:
 - name: 🇯🇵 日本节点
   type: url-test
   use:
-  - Airport_Subscription
+
   filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -471,7 +469,7 @@ proxy-groups:
 - name: 🇺🇲 美国节点
   type: url-test
   use:
-  - Airport_Subscription
+
   filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
   url: https://www.gstatic.com/generate_204
   interval: 900
@@ -480,7 +478,7 @@ proxy-groups:
 - name: 🇨🇳 台湾节点
   type: url-test
   use:
-  - Airport_Subscription
+
   filter: (台|新北|彰化|TW|Taiwan)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -489,7 +487,7 @@ proxy-groups:
 - name: 🇰🇷 韩国节点
   type: url-test
   use:
-  - Airport_Subscription
+
   filter: (KR|Korea|KOR|首尔|韩|韓)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -498,7 +496,7 @@ proxy-groups:
 - name: ⚡️其它节点
   type: url-test
   use:
-  - Airport_Subscription
+
   filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -507,13 +505,13 @@ proxy-groups:
 - name: ⚡️其它节点（手选）
   type: select
   use:
-  - Airport_Subscription
+
   filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
 
 - name: 🔯 故障转移
   type: fallback
   use:
-  - Airport_Subscription
+
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
@@ -521,7 +519,7 @@ proxy-groups:
 - name: 🔮 负载均衡
   type: load-balance
   use:
-  - Airport_Subscription
+
   filter: (负载|均衡)
   url: https://www.gstatic.com/generate_204
   interval: 600
