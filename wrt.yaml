@@ -118,19 +118,9 @@ proxy-providers:                     # 在此处填写你的代理节点信息�
   Airport_Subscription:
     type: http
     # 请在下方填入你重置后的新订阅链接
-    url: "https://cyberguard.cfd/api/v1/client/subscribe?token=eb3b359f1ee661f4bd045afab7318c87"
+    url: "https://gist.githubusercontent.com/m999888/885d608e917a0e65ff9e57186f92c807/raw/Cyc"
     interval: 86400
     path: ./providers/airport.yaml
-    exclude-filter: (官|网站|地址|过期|到期|剩余|流量|重置|联系|客服|群|订阅|续费|测试|专线|公告|提示)
-    health-check:
-      enable: true
-      interval: 600
-      url: https://www.gstatic.com/generate_204
-  Airport_2:        # 在这里添加你的第二个订阅
-    type: http
-    url: "https://mitce.io/modules/servers/v2Net/subscribe/?sid=473135&token=2cd8936c35a30d0c5837"
-    interval: 86400
-    path: ./providers/airport_2.yaml
     exclude-filter: (官|网站|地址|过期|到期|剩余|流量|重置|联系|客服|群|订阅|续费|测试|专线|公告|提示)
     health-check:
       enable: true
@@ -313,7 +303,6 @@ proxy-groups:
   type: url-test
   use:
   - Airport_Subscription
-  - Airport_2
   filter: (IEPL 1.7|SG1-HY2|SG2-HY2)
   url: https://www.gstatic.com/generate_204
   interval: 600
@@ -323,7 +312,6 @@ proxy-groups:
   type: url-test
   use:
   - Airport_Subscription
-  - Airport_2
   filter: (SG|TW|JP)
   url: https://www.gstatic.com/generate_204
   interval: 600
