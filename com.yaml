@@ -303,7 +303,7 @@ proxy-groups:
   type: url-test
   use:
   - Airport_Subscription
-  filter: (IEPL 1.7|SG1-HY2|SG2-HY2)
+  filter: (IEPL 1.7|SG)
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
