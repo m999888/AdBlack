@@ -16,8 +16,10 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+  - '223.5.5.5'
+  - '119.29.29.29'
+  - '2400:3200::1'
+  - '2402:4e00::'
   direct-nameserver-follow-policy: true
 fake-ip-filter:
     # 1. 局域网与本地设备
@@ -84,14 +86,14 @@ fallback-filter:
     - 0.0.0.0/32
 listen: :1053
 nameserver:
-  - https://1.12.12.12/dns-query
-  - https://223.5.5.5/dns-query
-  - 'https://1.1.1.1/dns-query#✈️ 节点选择'
-  - 'https://8.8.8.8/dns-query#✈️ 节点选择'
+- 'https://dns.alidns.com/dns-query'
+- 'https://doh.pub/dns-query'
+- 'https://cloudflare-dns.com/dns-query#✈️ 节点选择'
+- 'https://dns.google/dns-query#✈️ 节点选择'
 prefer-h3: true
 proxy-server-nameserver:
-  - https://1.12.12.12/dns-query
-  - https://223.5.5.5/dns-query
+- 'https://dns.alidns.com/dns-query'
+- 'https://doh.pub/dns-query'
 respect-rules: true
 use-system-hosts: false
 profile:
