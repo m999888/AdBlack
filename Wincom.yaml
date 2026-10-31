@@ -92,8 +92,8 @@ nameserver:
 - 'https://dns.google/dns-query#✈️ 节点选择'
 prefer-h3: true
 proxy-server-nameserver:
-- 'https://dns.alidns.com/dns-query'
-- 'https://doh.pub/dns-query'
+- 'https://cloudflare-dns.com/dns-query'
+- 'https://dns.google/dns-query'
 respect-rules: true
 use-system-hosts: false
 external-controller-pipe: \\.\pipe\verge-mihomo-sidecar-release-173d532e85ff0d0202bdc38d4b0b0cd4ee33349fe3265fcdbd2849eafac8b00f
