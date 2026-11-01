@@ -550,13 +550,13 @@ rule-providers:
   AI_Services:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/AI_Services.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/AI_Services.yaml
     path: ./rules/AI_Services.yaml
     interval: 86400
   Crypto:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/Crypto.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/Crypto.yaml
     path: ./rules/Crypto.yaml
     interval: 86400
   TestFlight:
@@ -682,7 +682,7 @@ rule-providers:
   Google:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/Google.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/Google.yaml
     path: ./rules/Google.yaml
     interval: 86400
   Facebook:
@@ -694,7 +694,7 @@ rule-providers:
   CnCIDR:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/cnCIDR.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/cnCIDR.yaml
     path: ./rules/cnCIDR.yaml
     interval: 86400
   CN:
@@ -712,13 +712,13 @@ rule-providers:
   gwf:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/gwf.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/gwf.yaml
     path: ./rules/gwf.yaml
     interval: 86400
   Game:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/games.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/games.yaml
     path: ./rules/Game.yaml
     interval: 86400
   Adblock4limbo:
@@ -730,7 +730,7 @@ rule-providers:
   rejectAd:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/rejectAd.list.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/rejectAd.list.yaml
     path: ./rules/rejectAd.yaml
     interval: 86400
 # =========================================================
