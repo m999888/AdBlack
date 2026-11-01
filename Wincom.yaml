@@ -305,7 +305,7 @@ proxy-groups:
   type: url-test
   use:
   - Airport_Subscription
-  filter: (IEPL 1.7|SG)
+  filter: (IEPL 1.7|SG|JP|TW)
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 50
@@ -347,7 +347,7 @@ proxy-groups:
   type: select
   use:
   - Airport_Subscription
-  filter: (IPLC|IEPL|专线)
+  filter: (IPLC|IEPL|专线|香港)
 
 - name: 🎬 TikTok
   type: select
@@ -544,7 +544,7 @@ rule-providers:
   GoogleVoice:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleVoice/GoogleVoice_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/GoogleVoice_classical_5939bf00c0227fdc.yaml
     path: ./rules/GoogleVoice.yaml
     interval: 86400
   AI_Services:
@@ -559,16 +559,16 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/Crypto.yaml
     path: ./rules/Crypto.yaml
     interval: 86400
-  TestFlight:
+  AppleProxy:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TestFlight/TestFlight_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/AppleProxy_classical_5426fdc73399c31b.yaml
     path: ./rules/TestFlight.yaml
     interval: 86400
   Apple:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Apple_classical_0fa29647e779e764.yaml
     path: ./rules/Apple.yaml
     interval: 86400
   BlockHttpDNS:
@@ -580,103 +580,109 @@ rule-providers:
   Privacy:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Privacy/Privacy_Classical_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Privacy_classical_3ae0f127ab1d5953.yaml
     path: ./rules/Privacy.yaml
     interval: 86400
   Hijacking:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Hijacking_classical_7fab12900e7b18d2.yaml
     path: ./rules/Hijacking.yaml
+    interval: 86400
+  GlobalCDN:
+    type: http
+    behavior: classical
+    url: https://rule-26r.pages.dev/data/_shared/artifacts/GlobalCDN_classical_ed347d60ce9ce71f.yaml
+    path: ./rules/GlobalCDN.yaml
     interval: 86400
   Spotify:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Spotify_classical_822ce41d873a2ee4.yaml
     path: ./rules/Spotify.yaml
     interval: 86400
   Telegram:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Telegram_classical_1b14a0a6432f12dc.yaml
     path: ./rules/Telegram.yaml
     interval: 86400
   Samsung:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Samsung/Samsung_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Samsung_classical_eec503338f8ef014.yaml
     path: ./rules/Samsung.yaml
     interval: 86400
   Netflix:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix_Classical_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Netflix_classical_c2f68b0a92395ef4.yaml
     path: ./rules/Netflix.yaml
     interval: 86400
   Whatsapp:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Whatsapp/Whatsapp_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Whatsapp_classical_cd2dafda3f58a9b4.yaml
     path: ./rules/Whatsapp.yaml
     interval: 86400
   Instagram:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Instagram_classical_8f2bea3580d2acf2.yaml
     path: ./rules/Instagram.yaml
     interval: 86400
   PayPal:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PayPal/PayPal_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/PayPal_classical_3d035a8c84b7c305.yaml
     path: ./rules/PayPal.yaml
     interval: 86400
   GoogleFCM:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleFCM/GoogleFCM_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/GoogleFCM_classical_781159f701cc3dbb.yaml
     path: ./rules/GoogleFCM.yaml
     interval: 86400
   Microsoft:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Microsoft/Microsoft_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Microsoft_classical_e67099aa280f921f.yaml
     path: ./rules/Microsoft.yaml
     interval: 86400
   YouTubeMusic:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTubeMusic/YouTubeMusic_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/YouTubeMusic_classical_40446f6e1acd3a36.yaml
     path: ./rules/YouTubeMusic.yaml
     interval: 86400
   YouTube:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/YouTube_classical_59b6d0fe3b15c19e.yaml
     path: ./rules/YouTube.yaml
     interval: 86400
   Twitter:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Twitter/Twitter_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Twitter_classical_d405159ccf6c8682.yaml
     path: ./rules/Twitter.yaml
     interval: 86400
   WeChat:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/WeChat/WeChat_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/WeChat_classical_b33d1fc8be9d6b0b.yaml
     path: ./rules/WeChat.yaml
     interval: 86400
   Douyin:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/DouYin_classical_2177efdc2538936b.yaml
     path: ./rules/Douyin.yaml
     interval: 86400
   TikTok:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/TikTok_classical_c510421d706b99d3.yaml
     path: ./rules/TikTok.yaml
     interval: 86400
   Google:
@@ -688,19 +694,19 @@ rule-providers:
   Facebook:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Facebook/Facebook_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Facebook_classical_041e2b1a05aace8f.yaml
     path: ./rules/Facebook.yaml
     interval: 86400
   CnCIDR:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/cnCIDR.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/ChinaIPs_classical_b357d7a3f17737f1.yaml
     path: ./rules/cnCIDR.yaml
     interval: 86400
   CN:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/China_classical_488d107c687bae96.yaml
     path: ./rules/CN.yaml
     interval: 86400
   Global:
@@ -753,7 +759,7 @@ rules:
 
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
-  - RULE-SET,TestFlight,🌍 Global服务
+  - RULE-SET,AppleProxy,🌍 Global服务
   - RULE-SET,Apple,🍏 Apple服务
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
@@ -778,9 +784,10 @@ rules:
   - RULE-SET,TikTok,🎬 TikTok
   - RULE-SET,Google,🔍️ Google服务
   - RULE-SET,Facebook,📘 Facebook
-  
+
   # 3. 代理规则
   - RULE-SET,gwf,🌍 Global服务
+  - RULE-SET,GlobalCDN,🎯 国内直连
   - RULE-SET,Global,🌍 Global服务
 
   # 4. 直连规则
