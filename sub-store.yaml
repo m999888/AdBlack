@@ -1,5 +1,5 @@
 # =========================================================
-# Nikki / Clash Meta / Mihomo 纯覆写配置模板（不含节点及订阅）
+# Nikki / Clash Meta / Mihomo 纯覆写配置模板（修复版）
 # =========================================================
 
 mode: rule
@@ -10,70 +10,70 @@ ipv6: false
 external-controller: ''
 secret: set-your-secret
 unified-delay: true
+
 dns:
   enable: true
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver:
-  - '223.5.5.5'
-  - '119.29.29.29'
-  - '2400:3200::1'
-  - '2402:4e00::'
+    - '223.5.5.5'
+    - '119.29.29.29'
+    - '2400:3200::1'
+    - '2402:4e00::'
   direct-nameserver-follow-policy: true
+
 fake-ip-filter:
-    # 1. 局域网与本地设备
-    - '*.lan'
-    - '*.local'
-    - '*.arpa'
-    - 'localhost.*'
-    - '*.home.arpa'
-    - '+.local.mesh'
-    - 'localhost.ptlogin2.qq.com'
+  # 1. 局域网与本地设备
+  - '*.lan'
+  - '*.local'
+  - '*.arpa'
+  - 'localhost.*'
+  - '*.home.arpa'
+  - '+.local.mesh'
+  - 'localhost.ptlogin2.qq.com'
+  # 2. 时间同步（NTP）与基础连通性检查
+  - 'ntp.*.com'
+  - 'time.*.com'
+  - '*.msftncsi.com'
+  - '*.msftconnecttest.com'
+  - 'connectivitycheck.gstatic.com'
+  - 'detectportal.firefox.com'
+  - 'cp.cloudflare.com'
+  # 3. Apple 关键同步、推送与门禁
+  - 'captive.apple.com'
+  - '+.apple-dns.net'
+  - '+.push.apple.com'
+  - 'ocsp.apple.com'
+  - 'ocsp2.apple.com'
+  - 'valid.apple.com'
+  - '+.mask.icloud.com'
+  - '+.mask-h2.icloud.com'
+  - '+.mask-api.icloud.com'
+  - 'p*-cloudkit.icloud.com'
+  - 'p*-keyvalueservice.icloud.com'
+  - 'gateway.icloud.com'
+  - 'metrics.icloud.com'
+  # 4. 常见路由器后台与局域网服务
+  - '+.router.asus.com'
+  - '+.routerlogin.net'
+  - '+.tplinkwifi.net'
+  - '+.miwifi.com'
+  - '+.peiluyou.com'
+  - '+.fitbox.home'
+  - '+.market.xiaomi.com'
+  - '+.plex.direct'
+  # 5. 游戏联机与 P2P / STUN 打洞服务
+  - '+.stun.*.*'
+  - '+.stun.*.*.*'
+  - '+.stun.*.*.*.*'
+  - '+.turn.*.*'
+  - '+.turn.*.*.*'
+  - '+.xboxlive.com'
 
-    # 2. 时间同步（NTP）与基础连通性检查
-    - 'ntp.*.com'
-    - 'time.*.com'
-    - '*.msftncsi.com'
-    - '*.msftconnecttest.com'
-    - 'connectivitycheck.gstatic.com'
-    - 'detectportal.firefox.com'
-    - 'cp.cloudflare.com'
-
-    # 3. Apple 关键同步、推送与门禁
-    - 'captive.apple.com'
-    - '+.apple-dns.net'
-    - '+.push.apple.com'
-    - 'ocsp.apple.com'
-    - 'ocsp2.apple.com'
-    - 'valid.apple.com'
-    - '+.mask.icloud.com'
-    - '+.mask-h2.icloud.com'
-    - '+.mask-api.icloud.com'
-    - 'p*-cloudkit.icloud.com'
-    - 'p*-keyvalueservice.icloud.com'
-    - 'gateway.icloud.com'
-    - 'metrics.icloud.com'
-
-    # 4. 常见路由器后台与局域网服务
-    - '+.router.asus.com'
-    - '+.routerlogin.net'
-    - '+.tplinkwifi.net'
-    - '+.miwifi.com'
-    - '+.peiluyou.com'
-    - '+.fitbox.home'
-    - '+.market.xiaomi.com'
-    - '+.plex.direct'
-
-    # 5. 游戏联机与 P2P / STUN 打洞服务
-    - '+.stun.*.*'
-    - '+.stun.*.*.*'
-    - '+.stun.*.*.*.*'
-    - '+.turn.*.*'
-    - '+.turn.*.*.*'
-    - '+.xboxlive.com'
 faked-ip-filter-mode: blacklist
 fake-ip-range6: fdfe:dcba:9876::1/64
+
 fallback-filter:
   domain:
     - +.google.com
@@ -84,18 +84,22 @@ fallback-filter:
   ipcidr:
     - 240.0.0.0/4
     - 0.0.0.0/32
+
 listen: :1053
 nameserver:
-- 'https://dns.alidns.com/dns-query'
-- 'https://doh.pub/dns-query'
-- 'https://cloudflare-dns.com/dns-query#✈️ 节点选择'
-- 'https://dns.google/dns-query#✈️ 节点选择'
+  - 'https://dns.alidns.com/dns-query'
+  - 'https://doh.pub/dns-query'
+  - 'https://cloudflare-dns.com/dns-query#✈️ 节点选择'
+  - 'https://dns.google/dns-query#✈️ 节点选择'
+
 prefer-h3: true
 proxy-server-nameserver:
-- 'https://dns.alidns.com/dns-query'
-- 'https://doh.pub/dns-query'
+  - 'https://dns.alidns.com/dns-query'
+  - 'https://doh.pub/dns-query'
+
 respect-rules: true
 use-system-hosts: false
+
 profile:
   store-selected: true
 
@@ -105,7 +109,7 @@ profile:
 tun:
   enable: true
   stack: mixed
-  device: Win
+  device: Winho
   auto-route: true
   auto-detect-interface: true
   strict-route: true
@@ -116,7 +120,7 @@ tun:
   route-exclude-address: []
 
 # ---------------------------------------------------------
-# 策略组（适配客户端的本地覆写模板）
+# 策略组
 # ---------------------------------------------------------
 proxy-groups:
   - name: ✈️ 节点选择
@@ -288,245 +292,248 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
 
-- name: 👽 AI节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (IEPL 1.7|SG|JP|TW)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
-  
-- name: 👽 AI其它节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (SG|TW|JP)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 👽 AI节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (IEPL 1.7|SG|JP|TW)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: 🐟 漏网之鱼
-  type: select
-  proxies:
-  - ✈️ 节点选择
-  - DIRECT
+  - name: 👽 AI其它节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (SG|TW|JP)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: 🌍 Global服务
-  type: select
-  proxies:
-  - ✈️ 节点选择
-  - ⚙️ 自动策略
-  - 🇭🇰 香港节点
-  - 🇨🇳 台湾节点
-  - 🇸🇬 新加坡节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇰🇷 韩国节点
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - ✈️ 节点选择
+      - DIRECT
 
-- name: 🎮 Game
-  type: select
-  proxies:
-  - 🎮 游戏节点
-  - DIRECT
+  - name: 🌍 Global服务
+    type: select
+    proxies:
+      - ✈️ 节点选择
+      - ⚙️ 自动策略
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
 
-- name: 🎮 游戏节点
-  type: select
-  use:
-  - Airport_Subscription
-  filter: (IPLC|IEPL|专线|香港)
+  - name: 🎮 Game
+    type: select
+    proxies:
+      - 🎮 游戏节点
+      - DIRECT
 
-- name: 🎬 TikTok
-  type: select
-  proxies:
-  - 🇺🇲 美国节点
-  - 🇨🇳 台湾节点
-  - 🇯🇵 日本节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
+  - name: 🎮 游戏节点
+    type: select
+    use:
+      - Airport_Subscription
+    filter: (IPLC|IEPL|专线|香港)
 
-- name: 🍏 Apple服务
-  type: select
-  proxies:
-  - DIRECT
-  - ✈️ 节点选择
-  - 🇭🇰 香港节点
-  - 🇸🇬 新加坡节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇨🇳 台湾节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
+  - name: 🎬 TikTok
+    type: select
+    proxies:
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
 
-- name: 📱 三星服务
-  type: select
-  proxies:
-  - DIRECT
-  - 🇭🇰 香港节点
-  - 🇸🇬 新加坡节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇨🇳 台湾节点
-  - 🇰🇷 韩国节点
+  - name: 🍏 Apple服务
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 节点选择
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
 
-- name: 🎯 国内直连
-  type: select
-  proxies:
-  - DIRECT
-  - ✈️ 节点选择
+  - name: 📱 三星服务
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
 
-- name: 🎬 Netflix视频
-  type: select
-  proxies:
-  - 🇭🇰 香港节点
-  - 🇸🇬 新加坡节点
-  - 🇨🇳 台湾节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇰🇷 韩国节点
-  - 💿 奈飞节点
-  - 🚀 手动切换
-  - DIRECT
+  - name: 🎯 国内直连
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 节点选择
 
-- name: 📢 谷歌FCM
-  type: select
-  proxies:
-  - DIRECT
-  - ✈️ 节点选择
-  - 🇭🇰 香港节点
-  - 🇸🇬 新加坡节点
-  - 🇯🇵 日本节点
-  - 🇺🇲 美国节点
-  - 🇨🇳 台湾节点
-  - 🇰🇷 韩国节点
+  - name: 🎬 Netflix视频
+    type: select
+    proxies:
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇨🇳 台湾节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 💿 奈飞节点
+      - 🚀 手动切换
+      - DIRECT
 
-- name: 📱 GoogleVoice
-  type: select
-  proxies:
-  - 🇺🇲 美国节点
-  - ✈️ 节点选择
-  - 🇭🇰 香港节点
-  - 🇸🇬 新加坡节点
-  - 🇯🇵 日本节点
-  - 🇨🇳 台湾节点
-  - 🇰🇷 韩国节点
-  - 🚀 手动切换
-  - DIRECT
+  - name: 📢 谷歌FCM
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 节点选择
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
 
-- name: 💿 奈飞节点
-  type: select
-  use:
-  - Airport_Subscription
-  filter: (NF|奈飞|解锁|Netflix|NETFLIX|Media|UNLOCK)
+  - name: 📱 GoogleVoice
+    type: select
+    proxies:
+      - 🇺🇲 美国节点
+      - ✈️ 节点选择
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+      - DIRECT
 
-- name: 🇨🇳 抖音
-  type: select
-  proxies:
-  - DIRECT
-  - ✈️ 节点选择
+  - name: 💿 奈飞节点
+    type: select
+    use:
+      - Airport_Subscription
+    filter: (NF|奈飞|解锁|Netflix|NETFLIX|Media|UNLOCK)
 
-- name: 🇨🇳 微信
-  type: select
-  proxies:
-  - DIRECT
-  - ✈️ 节点选择
+  - name: 🇨🇳 抖音
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 节点选择
 
-- name: 🛡️ 隐私防护
-  type: select
-  proxies:
-  - REJECT
+  - name: 🇨🇳 微信
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 节点选择
 
-- name: 🛑 广告拦截
-  type: select
-  proxies:
-  - REJECT
+  - name: 🛡️ 隐私防护
+    type: select
+    proxies:
+      - REJECT
 
-- name: 🇭🇰 香港节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (港|HK|Hong Kong)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
 
-- name: 🇸🇬 新加坡节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (新加坡|坡|狮城|SG|Singapore)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 🇭🇰 香港节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (港|HK|Hong Kong)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: 🇯🇵 日本节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 🇸🇬 新加坡节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (新加坡|坡|狮城|SG|Singapore)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: 🇺🇲 美国节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
-  url: https://www.gstatic.com/generate_204
-  interval: 900
-  tolerance: 150
+  - name: 🇯🇵 日本节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: 🇨🇳 台湾节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (台|新北|彰化|TW|Taiwan)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 🇺🇲 美国节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
+    url: https://www.gstatic.com/generate_204
+    interval: 900
+    tolerance: 150
 
-- name: 🇰🇷 韩国节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: (KR|Korea|KOR|首尔|韩|韓)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 🇨🇳 台湾节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (台|新北|彰化|TW|Taiwan)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: ⚡️其它节点
-  type: url-test
-  use:
-  - Airport_Subscription
-  filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 🇰🇷 韩国节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: (KR|Korea|KOR|首尔|韩|韓)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: ⚡️其它节点（手选）
-  type: select
-  use:
-  - Airport_Subscription
-  filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
+  - name: ⚡️其它节点
+    type: url-test
+    use:
+      - Airport_Subscription
+    filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
-- name: 🔯 故障转移
-  type: fallback
-  use:
-  - Airport_Subscription
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: ⚡️其它节点（手选）
+    type: select
+    use:
+      - Airport_Subscription
+    filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
 
-- name: 🔮 负载均衡
-  type: load-balance
-  use:
-  - Airport_Subscription
-  filter: (负载|均衡)
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  - name: 🔯 故障转移
+    type: fallback
+    use:
+      - Airport_Subscription
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
 
+  - name: 🔮 负载均衡
+    type: load-balance
+    use:
+      - Airport_Subscription
+    filter: (负载|均衡)
+    url: https://www.gstatic.com/generate_204
+    interval: 600
+    tolerance: 50
+
+# ---------------------------------------------------------
+# 规则集提供商
+# ---------------------------------------------------------
 rule-providers:
   GoogleVoice:
     type: http
@@ -726,8 +733,9 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/rejectAd.list.yaml
     path: ./rules/rejectAd.yaml
     interval: 86400
+
 # =========================================================
-# 规则匹配（自上而下匹配，最顶部具有最高优先级）
+# 规则匹配
 # =========================================================
 rules:
   # 1. 优先拦截 STUN / WebRTC 泄露探测
@@ -735,15 +743,14 @@ rules:
   - DST-PORT,19302,REJECT
   - DOMAIN-KEYWORD,stun,REJECT
   - DOMAIN-KEYWORD,webrtc,REJECT
-  #######################
+  # 自定义屏蔽项
   - DOMAIN-SUFFIX,jable.tv,REJECT
-  - DOMAIN-suffix,missav.ws,REJECT
-  - DOMAIN-keyword,jable,REJECT
-  - DOMAIN-keyword,missav,REJECT
+  - DOMAIN-SUFFIX,missav.ws,REJECT
+  - DOMAIN-KEYWORD,jable,REJECT
+  - DOMAIN-KEYWORD,missav,REJECT
 
   # 2. 其它应用及服务规则
   - RULE-SET,Game,🎮 Game
-
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,AppleProxy,🌍 Global服务
@@ -784,7 +791,3 @@ rules:
 
   # 5. 兜底策略
   - MATCH,🐟 漏网之鱼
-
-
-
-
