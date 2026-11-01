@@ -295,7 +295,7 @@ proxy-groups:
   - name: 👽 AI节点
     type: url-test
     include-all: true
-    filter: (IEPL 1.7|SG|JP|TW)
+    filter: (IEPL 1.7|SG)
     url: https://www.gstatic.com/generate_204
     interval: 600
     tolerance: 50
@@ -333,7 +333,7 @@ proxy-groups:
       - DIRECT
 
   - name: 🎮 游戏节点
-    type: url-test
+    type: select
     include-all: true
     filter: (IPLC|IEPL|专线)
 
@@ -516,6 +516,7 @@ proxy-groups:
     url: https://www.gstatic.com/generate_204
     interval: 600
     tolerance: 50
+
 
 # ---------------------------------------------------------
 # 规则集提供商
