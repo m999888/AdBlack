@@ -589,12 +589,6 @@ rule-providers:
     url: https://magicrule.pages.dev/data/_shared/artifacts/Hijacking_classical_7fab12900e7b18d2.yaml
     path: ./rules/Hijacking.yaml
     interval: 86400
-  GlobalCDN:
-    type: http
-    behavior: classical
-    url: https://rule-26r.pages.dev/data/_shared/artifacts/GlobalCDN_classical_ed347d60ce9ce71f.yaml
-    path: ./rules/GlobalCDN.yaml
-    interval: 86400
   Spotify:
     type: http
     behavior: classical
@@ -787,7 +781,6 @@ rules:
 
   # 3. 代理规则
   - RULE-SET,gwf,🌍 Global服务
-  - RULE-SET,GlobalCDN,🎯 国内直连
   - RULE-SET,Global,🌍 Global服务
 
   # 4. 直连规则
