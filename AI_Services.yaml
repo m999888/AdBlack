@@ -1,5 +1,5 @@
-rules:
-  # === 完整域名匹配 (DOMAIN) ===
+payload:
+  # --- 完整域名 (DOMAIN) ---
   - DOMAIN,7h15.ru1353t.1s.m4d3.by.5ukk4w.skk.moe
   - DOMAIN,ai.google.dev
   - DOMAIN,alkalicore-pa.clients6.google.com
@@ -15,6 +15,9 @@ rules:
   - DOMAIN,apple-relay.cloudflare.com
   - DOMAIN,apple-relay.fastly-edge.com
   - DOMAIN,apple-relay.mask.apple-dns.net
+  - DOMAIN,appsgenaiserver-pa.clients.google.com
+  - DOMAIN,appsgenaiserver-pa.clients6.google.com
+  - DOMAIN,appsgenaiserver-pa.googleapis.com
   - DOMAIN,browser-intake-datadoghq.com
   - DOMAIN,cloudaicompanion.googleapis.com
   - DOMAIN,copilot-proxy.githubusercontent.com
@@ -46,7 +49,7 @@ rules:
   - DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com
   - DOMAIN,www.bing.com
 
-  # === 泛域名后缀匹配 (DOMAIN-SUFFIX) ===
+  # --- 域名后缀 (DOMAIN-SUFFIX) ---
   - DOMAIN-SUFFIX,agentclientprotocol.com
   - DOMAIN-SUFFIX,ai.azure.com
   - DOMAIN-SUFFIX,ai.com
@@ -64,6 +67,7 @@ rules:
   - DOMAIN-SUFFIX,anythingllm.com
   - DOMAIN-SUFFIX,apps.mzstatic.com
   - DOMAIN-SUFFIX,arena.ai
+  - DOMAIN-SUFFIX,artificialanalysis.ai
   - DOMAIN-SUFFIX,auth0.com
   - DOMAIN-SUFFIX,bard.google.com
   - DOMAIN-SUFFIX,byteoversea.com
@@ -91,6 +95,7 @@ rules:
   - DOMAIN-SUFFIX,claudeusercontent.com
   - DOMAIN-SUFFIX,clawhub.ai
   - DOMAIN-SUFFIX,client-api.arkoselabs.com
+  - DOMAIN-SUFFIX,cline.bot
   - DOMAIN-SUFFIX,clipdrop.co
   - DOMAIN-SUFFIX,cloudcode-pa.googleapis.com
   - DOMAIN-SUFFIX,codeium.com
@@ -102,6 +107,8 @@ rules:
   - DOMAIN-SUFFIX,comfy.org
   - DOMAIN-SUFFIX,comfyci.org
   - DOMAIN-SUFFIX,comfyregistry.org
+  - DOMAIN-SUFFIX,commandcode.ai
+  - DOMAIN-SUFFIX,context7.com
   - DOMAIN-SUFFIX,copilot-stg.com
   - DOMAIN-SUFFIX,copilot.cloud.microsoft
   - DOMAIN-SUFFIX,copilot.com
@@ -178,6 +185,7 @@ rules:
   - DOMAIN-SUFFIX,manuscdn.com
   - DOMAIN-SUFFIX,marscode.com
   - DOMAIN-SUFFIX,meta.ai
+  - DOMAIN-SUFFIX,metaaiusercontent.com
   - DOMAIN-SUFFIX,metaaivm.com
   - DOMAIN-SUFFIX,midjourney.com
   - DOMAIN-SUFFIX,minimax.io
@@ -190,6 +198,7 @@ rules:
   - DOMAIN-SUFFIX,notebooklm.google
   - DOMAIN-SUFFIX,notebooklm.google.com
   - DOMAIN-SUFFIX,notegpt.io
+  - DOMAIN-SUFFIX,nousresearch.com
   - DOMAIN-SUFFIX,novelai.net
   - DOMAIN-SUFFIX,oaistatic.com
   - DOMAIN-SUFFIX,oaistatsig.com
@@ -236,7 +245,7 @@ rules:
   - DOMAIN-SUFFIX,youmind.site
   - DOMAIN-SUFFIX,zed.dev
 
-  # === 关键字匹配 (DOMAIN-KEYWORD) ===
+  # --- 关键字匹配 (DOMAIN-KEYWORD) ---
   - DOMAIN-KEYWORD,alkalimakersuite-pa.clients6.google.com
   - DOMAIN-KEYWORD,anthropic
   - DOMAIN-KEYWORD,claude
@@ -246,5 +255,5 @@ rules:
   - DOMAIN-KEYWORD,openaiapi
   - DOMAIN-KEYWORD,openaicom
 
-  # === 正则表达式匹配 (DOMAIN-REGEX) ===
+  # --- 正则表达式匹配 (DOMAIN-REGEX) ---
   - DOMAIN-REGEX,^chatgpt-async-webps-prod-\S+-\d+\.webpubsub\.azure\.com$
