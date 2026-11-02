@@ -585,7 +585,7 @@ rule-providers:
   Telegram:
     type: http
     behavior: classical
-    url: https://magicrule.pages.dev/data/_shared/artifacts/Telegram_classical_1b14a0a6432f12dc.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
     path: ./rules/Telegram.yaml
     interval: 86400
   Samsung:
@@ -675,19 +675,19 @@ rule-providers:
   Facebook:
     type: http
     behavior: classical
-    url: https://magicrule.pages.dev/data/_shared/artifacts/Facebook_classical_041e2b1a05aace8f.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Facebook/Facebook_No_Resolve.yaml
     path: ./rules/Facebook.yaml
     interval: 86400
   CnCIDR:
     type: http
     behavior: classical
-    url: https://magicrule.pages.dev/data/_shared/artifacts/ChinaIPs_classical_b357d7a3f17737f1.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaIPs/ChinaIPs_Classical_No_Resolve.yaml
     path: ./rules/cnCIDR.yaml
     interval: 86400
   CN:
     type: http
     behavior: classical
-    url: https://magicrule.pages.dev/data/_shared/artifacts/China_classical_488d107c687bae96.yaml
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml
     path: ./rules/CN.yaml
     interval: 86400
   Global:
