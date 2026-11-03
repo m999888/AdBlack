@@ -130,7 +130,7 @@ proxy-providers:                     # 在此处填写你的代理节点信息�
     exclude-filter: (官|网站|地址|过期|到期|剩余|流量|重置|联系|客服|群|订阅|续费|测试|专线|公告|提示)
     health-check:
       enable: true
-      interval: 600
+      interval: 300
       url: https://www.gstatic.com/generate_204
 
 proxy-groups:
@@ -161,7 +161,7 @@ proxy-groups:
   - Airport_Subscription
   url: https://www.gstatic.com/generate_204
   interval: 300
-  tolerance: 50
+  tolerance: 10
 
 - name: 💰 加密货币
   type: select
@@ -311,8 +311,8 @@ proxy-groups:
   - Airport_Subscription
   filter: (IEPL 1.7|SG|JP|TW)
   url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  interval: 300
+  tolerance: 10
   
 - name: 👽 AI其它节点
   type: url-test
@@ -320,8 +320,8 @@ proxy-groups:
   - Airport_Subscription
   filter: (SG|TW|JP)
   url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  interval: 300
+  tolerance: 10
 
 - name: 🐟 漏网之鱼
   type: select
@@ -465,7 +465,7 @@ proxy-groups:
   filter: (港|HK|Hong Kong)
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 50
+  tolerance: 10
 
 - name: 🇸🇬 新加坡节点
   type: url-test
@@ -474,7 +474,7 @@ proxy-groups:
   filter: (新加坡|坡|狮城|SG|Singapore)
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 50
+  tolerance: 10
 
 - name: 🇯🇵 日本节点
   type: url-test
@@ -483,7 +483,7 @@ proxy-groups:
   filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 50
+  tolerance: 10
 
 - name: 🇺🇲 美国节点
   type: url-test
@@ -491,8 +491,8 @@ proxy-groups:
   - Airport_Subscription
   filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
   url: https://www.gstatic.com/generate_204
-  interval: 900
-  tolerance: 150
+  interval: 600
+  tolerance: 10
 
 - name: 🇨🇳 台湾节点
   type: url-test
@@ -501,7 +501,7 @@ proxy-groups:
   filter: (台|新北|彰化|TW|Taiwan)
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 50
+  tolerance: 10
 
 - name: 🇰🇷 韩国节点
   type: url-test
@@ -510,7 +510,7 @@ proxy-groups:
   filter: (KR|Korea|KOR|首尔|韩|韓)
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 50
+  tolerance: 10
 
 - name: ⚡️其它节点
   type: url-test
@@ -519,7 +519,7 @@ proxy-groups:
   filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 50
+  tolerance: 10
 
 - name: ⚡️其它节点（手选）
   type: select
@@ -539,10 +539,9 @@ proxy-groups:
   type: load-balance
   use:
   - Airport_Subscription
-  filter: (负载|均衡)
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 50
+  tolerance: 10
 
 rule-providers:
   GoogleVoice:
