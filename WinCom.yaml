@@ -351,7 +351,7 @@ proxy-groups:
   type: select
   use:
   - Airport_Subscription
-  filter: (IPLC|IEPL|专线|香港)
+  filter: (IPLC|IEPL|专线)
 
 - name: 🎬 TikTok
   type: select
@@ -760,7 +760,6 @@ rules:
   - RULE-SET,Apple,🍏 Apple服务
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
-  - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
   - RULE-SET,Spotify,🎵 Spotify
