@@ -532,8 +532,7 @@ proxy-groups:
   use:
   - Airport_Subscription
   url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 50
+  interval: 300
 
 - name: 🔮 负载均衡
   type: load-balance
@@ -542,6 +541,7 @@ proxy-groups:
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 10
+  strategy: consistent-hashing
 
 rule-providers:
   GoogleVoice:
