@@ -531,6 +531,7 @@ proxy-groups:
   type: fallback
   use:
   - Airport_Subscription
+  filter: "(?i)HK|香港|SG|新|日|JP|台|TW"
   url: https://www.gstatic.com/generate_204
   interval: 300
 
