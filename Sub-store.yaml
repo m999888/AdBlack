@@ -148,7 +148,7 @@ proxy-groups:
     include-all: true
     url: https://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
+    tolerance: 10
 
   - name: 💰 加密货币
     type: select
@@ -295,18 +295,18 @@ proxy-groups:
   - name: 👽 AI节点
     type: url-test
     include-all: true
-    filter: (IEPL 1.7|SG)
+    filter: (IEPL 1.7|SG|JP|TW)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: 👽 AI其它节点
     type: url-test
     include-all: true
     filter: (SG|TW|JP)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: 🐟 漏网之鱼
     type: select
@@ -446,56 +446,56 @@ proxy-groups:
     include-all: true
     filter: (港|HK|Hong Kong)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: 🇸🇬 新加坡节点
     type: url-test
     include-all: true
     filter: (新加坡|坡|狮城|SG|Singapore)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: 🇯🇵 日本节点
     type: url-test
     include-all: true
     filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: 🇺🇲 美国节点
     type: url-test
     include-all: true
     filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
     url: https://www.gstatic.com/generate_204
-    interval: 900
-    tolerance: 150
+    interval: 300
+    tolerance: 10
 
   - name: 🇨🇳 台湾节点
     type: url-test
     include-all: true
     filter: (台|新北|彰化|TW|Taiwan)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: 🇰🇷 韩国节点
     type: url-test
     include-all: true
     filter: (KR|Korea|KOR|首尔|韩|韓)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: ⚡️其它节点
     type: url-test
     include-all: true
     filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: ⚡️其它节点（手选）
     type: select
@@ -506,16 +506,15 @@ proxy-groups:
     type: fallback
     include-all: true
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
   - name: 🔮 负载均衡
     type: load-balance
     include-all: true
-    filter: (负载|均衡)
     url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 50
+    interval: 300
+    tolerance: 10
 
 
 # ---------------------------------------------------------
@@ -552,12 +551,6 @@ rule-providers:
     url: https://magicrule.pages.dev/data/_shared/artifacts/Apple_classical_0fa29647e779e764.yaml
     path: ./rules/Apple.yaml
     interval: 86400
-  BlockHttpDNS:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/BlockHttpDNS/BlockHttpDNS_No_Resolve.yaml
-    path: ./rules/BlockHttpDNS.yaml
-    interval: 86400
   Privacy:
     type: http
     behavior: classical
@@ -570,12 +563,6 @@ rule-providers:
     url: https://magicrule.pages.dev/data/_shared/artifacts/Hijacking_classical_7fab12900e7b18d2.yaml
     path: ./rules/Hijacking.yaml
     interval: 86400
-  GlobalCDN:
-    type: http
-    behavior: classical
-    url: https://rule-26r.pages.dev/data/_shared/artifacts/GlobalCDN_classical_ed347d60ce9ce71f.yaml
-    path: ./rules/GlobalCDN.yaml
-    interval: 86400
   Spotify:
     type: http
     behavior: classical
@@ -585,7 +572,7 @@ rule-providers:
   Telegram:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/Telegram.yaml
     path: ./rules/Telegram.yaml
     interval: 86400
   Samsung:
@@ -623,6 +610,12 @@ rule-providers:
     behavior: classical
     url: https://magicrule.pages.dev/data/_shared/artifacts/GoogleFCM_classical_781159f701cc3dbb.yaml
     path: ./rules/GoogleFCM.yaml
+    interval: 86400
+  GitHub:
+    type: http
+    behavior: classical
+    url: https://magicrule.pages.dev/data/_shared/artifacts/GitHub_classical_66f5a463ca33f147.yaml
+    path: ./rules/GitHub.yaml
     interval: 86400
   Microsoft:
     type: http
@@ -675,25 +668,25 @@ rule-providers:
   Facebook:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Facebook/Facebook_No_Resolve.yaml
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/Facebook.yaml
     path: ./rules/Facebook.yaml
     interval: 86400
   CnCIDR:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaIPs/ChinaIPs_Classical_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/ChinaIPs_classical_b357d7a3f17737f1.yaml
     path: ./rules/cnCIDR.yaml
     interval: 86400
   CN:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/China_classical_488d107c687bae96.yaml
     path: ./rules/CN.yaml
     interval: 86400
   Global:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Global_classical_84d7c926159da35f.yaml
     path: ./rules/Global.yaml
     interval: 86400
   gwf:
@@ -720,9 +713,8 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/rejectAd.list.yaml
     path: ./rules/rejectAd.yaml
     interval: 86400
-
 # =========================================================
-# 规则匹配
+# 规则匹配（自上而下匹配，最顶部具有最高优先级）
 # =========================================================
 rules:
   # 1. 优先拦截 STUN / WebRTC 泄露探测
@@ -730,11 +722,11 @@ rules:
   - DST-PORT,19302,REJECT
   - DOMAIN-KEYWORD,stun,REJECT
   - DOMAIN-KEYWORD,webrtc,REJECT
-  # 自定义屏蔽项
+  #######################
   - DOMAIN-SUFFIX,jable.tv,REJECT
-  - DOMAIN-SUFFIX,missav.ws,REJECT
-  - DOMAIN-KEYWORD,jable,REJECT
-  - DOMAIN-KEYWORD,missav,REJECT
+  - DOMAIN-suffix,missav.ws,REJECT
+  - DOMAIN-keyword,jable,REJECT
+  - DOMAIN-keyword,missav,REJECT
 
   # 2. 其它应用及服务规则
   - RULE-SET,Game,🎮 Game
@@ -744,7 +736,6 @@ rules:
   - RULE-SET,Apple,🍏 Apple服务
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
-  - RULE-SET,BlockHttpDNS,🛡️ 隐私防护
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
   - RULE-SET,Spotify,🎵 Spotify
@@ -755,6 +746,7 @@ rules:
   - RULE-SET,Instagram,📘 Instagram
   - RULE-SET,PayPal,📘 PayPal
   - RULE-SET,GoogleFCM,📢 谷歌FCM
+  - RULE-SET,GitHub,📘 Microsoft服务
   - RULE-SET,Microsoft,📘 Microsoft服务
   - RULE-SET,Crypto,💰 加密货币
   - RULE-SET,YouTubeMusic,🎬 YouTube服务
@@ -768,7 +760,6 @@ rules:
 
   # 3. 代理规则
   - RULE-SET,gwf,🌍 Global服务
-  - RULE-SET,GlobalCDN,🎯 国内直连
   - RULE-SET,Global,🌍 Global服务
 
   # 4. 直连规则
@@ -778,3 +769,7 @@ rules:
 
   # 5. 兜底策略
   - MATCH,🐟 漏网之鱼
+
+
+
+
