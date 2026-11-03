@@ -446,7 +446,7 @@ proxy-groups:
     include-all: true
     filter: (港|HK|Hong Kong)
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: 🇸🇬 新加坡节点
@@ -454,7 +454,7 @@ proxy-groups:
     include-all: true
     filter: (新加坡|坡|狮城|SG|Singapore)
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: 🇯🇵 日本节点
@@ -462,7 +462,7 @@ proxy-groups:
     include-all: true
     filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: 🇺🇲 美国节点
@@ -470,7 +470,7 @@ proxy-groups:
     include-all: true
     filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: 🇨🇳 台湾节点
@@ -478,7 +478,7 @@ proxy-groups:
     include-all: true
     filter: (台|新北|彰化|TW|Taiwan)
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: 🇰🇷 韩国节点
@@ -486,7 +486,7 @@ proxy-groups:
     include-all: true
     filter: (KR|Korea|KOR|首尔|韩|韓)
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: ⚡️其它节点
@@ -494,7 +494,7 @@ proxy-groups:
     include-all: true
     filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: ⚡️其它节点（手选）
@@ -506,14 +506,14 @@ proxy-groups:
     type: fallback
     include-all: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
   - name: 🔮 负载均衡
     type: load-balance
     include-all: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 600
     tolerance: 10
 
 
