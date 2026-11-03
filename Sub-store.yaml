@@ -732,8 +732,8 @@ rules:
   - RULE-SET,Game,🎮 Game
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
-  - RULE-SET,AppleProxy,🌍 Global服务
   - RULE-SET,Apple,🍏 Apple服务
+  - RULE-SET,AppleProxy,🌍 Global服务
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
