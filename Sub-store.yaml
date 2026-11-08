@@ -783,6 +783,7 @@ rules:
   - RULE-SET,Global,🌍 全球服务
 
   # 4. 直连规则
+  - RULE-SET,Game_CN,🇨🇳 国内直连
   - RULE-SET,CnCIDR,🇨🇳 国内直连
   - RULE-SET,CN,🇨🇳 国内直连
   - GEOIP,CN,DIRECT,no-resolve
