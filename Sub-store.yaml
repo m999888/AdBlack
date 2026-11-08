@@ -96,6 +96,13 @@ nameserver:
     - 'https://[2606:4700:4700::1111]/dns-query#✈️ 节点选择'
     - 'https://[2001:4860:4860::8888]/dns-query#✈️ 节点选择'
 prefer-h3: true
+nameserver-policy:
+# 国内与私有、直连相关规则统一走阿里/腾讯（确保低延迟与真实内网 IP）
+    "rule-set:Apple,CnCIDR,CN,Samsung,Lan,Game_CN,Douyin,WeChat": 'https://223.5.5.5/dns-query'
+    
+    # 国外代理、社交、流媒体等统一强制走代理节点的海外加密 DNS（绝对防污染）
+    "rule-set:Global,gwf,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,AI_Services,TikTok,AppleProxy,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game": 'https://8.8.8.8/dns-query#✈️ 节点选择'
+
 proxy-server-nameserver:
   - 'https://1.1.1.1/dns-query'
   - 'https://8.8.8.8/dns-query'
@@ -697,10 +704,16 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/gwf.yaml
     path: ./rules/gwf.yaml
     interval: 86400
+  Game_CN:
+    type: http
+    behavior: classical
+    url: https://magicrule.pages.dev/data/_shared/artifacts/ChinaGame_classical_1f74479d4a303e01.yaml
+    path: ./rules/Game_CN.yaml
+    interval: 86400
   Game:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/games.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/GlobalGame_classical_f8d067b0c35d9641.yaml
     path: ./rules/Game.yaml
     interval: 86400
   Adblock4limbo:
