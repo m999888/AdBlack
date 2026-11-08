@@ -73,10 +73,10 @@ fake-ip-filter:
 
 faked-ip-filter-mode: blacklist
 fallback:
-- 'https://1.1.1.1/dns-query#✈️ 节点选择'
-- 'https://8.8.8.8/dns-query#✈️ 节点选择'
-- 'https://[2606:4700:4700::1111]/dns-query#✈️ 节点选择'
-- 'https://[2001:4860:4860::8888]/dns-query#✈️ 节点选择'
+  - 'https://1.1.1.1/dns-query#✈️ 节点选择'
+  - 'https://8.8.8.8/dns-query#✈️ 节点选择'
+  - 'https://[2606:4700:4700::1111]/dns-query#✈️ 节点选择'
+  - 'https://[2001:4860:4860::8888]/dns-query#✈️ 节点选择'
 fallback-filter:
   domain:
     - +.google.com
@@ -89,20 +89,27 @@ fallback-filter:
     - 0.0.0.0/32
 listen: :53
 nameserver:
-    - 'https://223.5.5.5/dns-query'
-    - 'https://1.12.12.12/dns-query'
-    - 'https://1.1.1.1/dns-query#✈️ 节点选择'
-    - 'https://8.8.8.8/dns-query#✈️ 节点选择'
-    - 'https://[2606:4700:4700::1111]/dns-query#✈️ 节点选择'
-    - 'https://[2001:4860:4860::8888]/dns-query#✈️ 节点选择'
+  - 'https://223.5.5.5/dns-query'
+  - 'https://1.12.12.12/dns-query'
+  - 'https://1.1.1.1/dns-query#✈️ 节点选择'
+  - 'https://8.8.8.8/dns-query#✈️ 节点选择'
+  - 'https://[2606:4700:4700::1111]/dns-query#✈️ 节点选择'
+  - 'https://[2001:4860:4860::8888]/dns-query#✈️ 节点选择'
 prefer-h3: true
+nameserver-policy:
+# 国内与私有、直连相关规则统一走阿里/腾讯（确保低延迟与真实内网 IP）
+  "rule-set:Apple,CnCIDR,CN,Samsung,Lan,Game_CN,Douyin,WeChat": 'https://223.5.5.5/dns-query'
+    
+    # 国外代理、社交、流媒体等统一强制走代理节点的海外加密 DNS（绝对防污染）
+  "rule-set:Global,gwf,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,AI_Services,TikTok,AppleProxy,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game": 'https://8.8.8.8/dns-query#✈️ 节点选择'
+
 proxy-server-nameserver:
   - 'https://1.1.1.1/dns-query'
   - 'https://8.8.8.8/dns-query'
   - 'https://[2606:4700:4700::1111]/dns-query'
   - 'https://[2001:4860:4860::8888]/dns-query'
 respect-rules: true #（遵循分流规则）
-use-system-hosts: false #（不读取系统 Hosts 文件)
+use-system-hosts: false #（不读取系统 Hosts 文件）
 
 profile:
   store-selected: true
@@ -545,7 +552,9 @@ proxy-groups:
   interval: 600
   tolerance: 10
   strategy: consistent-hashing
-
+# ---------------------------------------------------------
+# 规则集提供商
+# ---------------------------------------------------------
 rule-providers:
   GoogleVoice:
     type: http
@@ -721,10 +730,16 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/gwf.yaml
     path: ./rules/gwf.yaml
     interval: 86400
+  Game_CN:
+    type: http
+    behavior: classical
+    url: https://magicrule.pages.dev/data/_shared/artifacts/ChinaGame_classical_1f74479d4a303e01.yaml
+    path: ./rules/Game_CN.yaml
+    interval: 86400
   Game:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/games.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/GlobalGame_classical_f8d067b0c35d9641.yaml
     path: ./rules/Game.yaml
     interval: 86400
   Adblock4limbo:
@@ -761,7 +776,7 @@ rules:
   - DOMAIN-keyword,missav,REJECT
   - RULE-SET,Lan,DIRECT
   # 2. 其它应用及服务规则
-  - RULE-SET,Game,🎮 Game
+
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,Apple,🍏 Apple服务
@@ -770,6 +785,8 @@ rules:
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
+  - RULE-SET,Game_CN,🇨🇳 国内直连
+  - RULE-SET,Game,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Telegram,📱 电报消息
   - RULE-SET,Samsung,📱 三星服务
@@ -800,7 +817,6 @@ rules:
 
   # 5. 兜底策略
   - MATCH,🐟 漏网之鱼
-
 
 
 
