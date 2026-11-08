@@ -220,7 +220,7 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
 
-  - name: Microsoft服务
+  - name: 📘 Microsoft服务
     type: select
     proxies:
       - DIRECT
@@ -746,8 +746,8 @@ rules:
   - RULE-SET,Instagram,📘 Instagram
   - RULE-SET,PayPal,📘 PayPal
   - RULE-SET,GoogleFCM,📢 谷歌FCM
-  - RULE-SET,GitHub,Microsoft服务
-  - RULE-SET,Microsoft,Microsoft服务
+  - RULE-SET,GitHub,📘 Microsoft服务
+  - RULE-SET,Microsoft,📘 Microsoft服务
   - RULE-SET,Crypto,💰 加密货币
   - RULE-SET,YouTubeMusic,🎬 YouTube服务
   - RULE-SET,YouTube,🎬 YouTube服务
