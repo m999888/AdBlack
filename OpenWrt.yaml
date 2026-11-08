@@ -329,7 +329,7 @@ proxy-groups:
   - ✈️ 节点选择
   - DIRECT
 
-- name: 🌍 Global服务
+- name: 🌍 全球服务
   type: select
   proxies:
   - ✈️ 节点选择
@@ -386,7 +386,7 @@ proxy-groups:
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
 
-- name: 🎯 国内直连
+- name: 🇨🇳 国内直连
   type: select
   proxies:
   - DIRECT
@@ -757,7 +757,7 @@ rules:
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,Apple,🍏 Apple服务
-  - RULE-SET,AppleProxy,🌍 Global服务
+  - RULE-SET,AppleProxy,🌍 全球服务
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
@@ -779,16 +779,15 @@ rules:
   - RULE-SET,WeChat,🇨🇳 微信
   - RULE-SET,Douyin,🇨🇳 抖音
   - RULE-SET,TikTok,🎬 TikTok
-  - RULE-SET,Google,🔍️ Google服务
   - RULE-SET,Facebook,📘 Facebook
-
+  - RULE-SET,Google,🔍️ Google服务
   # 3. 代理规则
-  - RULE-SET,gwf,🌍 Global服务
-  - RULE-SET,Global,🌍 Global服务
+  - RULE-SET,gwf,🌍 全球服务
+  - RULE-SET,Global,🌍 全球服务
 
   # 4. 直连规则
-  - RULE-SET,CnCIDR,🎯 国内直连
-  - RULE-SET,CN,🎯 国内直连
+  - RULE-SET,CnCIDR,🇨🇳 国内直连
+  - RULE-SET,CN,🇨🇳 国内直连
   - GEOIP,CN,DIRECT,no-resolve
 
   # 5. 兜底策略
