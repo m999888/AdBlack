@@ -97,12 +97,11 @@ nameserver:
   - 'https://[2001:4860:4860::8888]/dns-query#✈️ 节点选择'
 prefer-h3: true
 nameserver-policy:
+# 国外代理、社交、流媒体等统一强制走代理节点的海外加密 DNS（绝对防污染）
+  "rule-set:AppleProxy,AI_Services,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,TikTok,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game,gwf,Global": 'https://8.8.8.8/dns-query#✈️ 节点选择'
 # 国内与私有、直连相关规则统一走阿里/腾讯（确保低延迟与真实内网 IP）
   "rule-set:Apple,CnCIDR,CN,Samsung,Lan,Game_CN,Douyin,WeChat": 'https://223.5.5.5/dns-query'
-    
-    # 国外代理、社交、流媒体等统一强制走代理节点的海外加密 DNS（绝对防污染）
-  "rule-set:Global,gwf,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,AI_Services,TikTok,AppleProxy,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game": 'https://8.8.8.8/dns-query#✈️ 节点选择'
-
+   
 proxy-server-nameserver:
   - 'https://1.1.1.1/dns-query'
   - 'https://8.8.8.8/dns-query'
@@ -355,7 +354,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
 
-  - name: 🍏 Apple服务
+  - name: 🍏 AppleProxy
     type: select
     proxies:
       - DIRECT
@@ -368,6 +367,19 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
 
+  - name: 🍏 Apple服务
+    type: select
+    proxies:
+      - DIRECT
+      - ✈️ 节点选择
+      - 🇭🇰 香港节点
+      - 🇸🇬 新加坡节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇨🇳 台湾节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+      
   - name: 📱 三星服务
     type: select
     proxies:
@@ -552,7 +564,7 @@ rule-providers:
     type: http
     behavior: classical
     url: https://magicrule.pages.dev/data/_shared/artifacts/AppleProxy_classical_5426fdc73399c31b.yaml
-    path: ./rules/TestFlight.yaml
+    path: ./rules/AppleProxy.yaml
     interval: 86400
   Apple:
     type: http
@@ -753,8 +765,8 @@ rules:
 
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
+  - RULE-SET,AppleProxy,🍏 AppleProxy
   - RULE-SET,Apple,🍏 Apple服务
-  - RULE-SET,AppleProxy,🌍 全球服务
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
