@@ -750,7 +750,7 @@ rules:
   - DOMAIN-keyword,missav,REJECT
   - RULE-SET,Lan,DIRECT
   # 2. 其它应用及服务规则
-  - RULE-SET,Game,🎮 Game
+
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,Apple,🍏 Apple服务
@@ -759,6 +759,8 @@ rules:
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
+  - RULE-SET,Game_CN,🇨🇳 国内直连
+  - RULE-SET,Game,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Telegram,📱 电报消息
   - RULE-SET,Samsung,📱 三星服务
@@ -783,7 +785,6 @@ rules:
   - RULE-SET,Global,🌍 全球服务
 
   # 4. 直连规则
-  - RULE-SET,Game_CN,🇨🇳 国内直连
   - RULE-SET,CnCIDR,🇨🇳 国内直连
   - RULE-SET,CN,🇨🇳 国内直连
   - GEOIP,CN,DIRECT,no-resolve
