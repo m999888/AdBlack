@@ -76,7 +76,6 @@ fallback:
 - 'https://1.1.1.1/dns-query#✈️ 节点选择'
 - 'https://8.8.8.8/dns-query#✈️ 节点选择'
 - 'https://[2606:4700:4700::1111]/dns-query#✈️ 节点选择'
-- 'https://dns64.dns.google/dns-query#✈️ 节点选择'
 fallback-filter:
   domain:
     - +.google.com
@@ -94,7 +93,6 @@ nameserver:
     - 'https://1.1.1.1/dns-query#✈️ 节点选择'
     - 'https://8.8.8.8/dns-query#✈️ 节点选择'
     - 'https://[2606:4700:4700::1111]/dns-query#✈️ 节点选择'
-    - 'https://dns64.dns.google/dns-query#✈️ 节点选择'
 prefer-h3: true
 proxy-server-nameserver:
   - 'https://1.1.1.1/dns-query'
@@ -713,6 +711,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/rejectAd.list.yaml
     path: ./rules/rejectAd.yaml
     interval: 86400
+  Lan:
+    type: http
+    behavior: classical
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Lan_classical_24817c9e646b9514.yaml
+    path: ./rules/rejectAd.yaml
+    interval: 86400
 # =========================================================
 # 规则匹配（自上而下匹配，最顶部具有最高优先级）
 # =========================================================
@@ -727,7 +731,7 @@ rules:
   - DOMAIN-suffix,missav.ws,REJECT
   - DOMAIN-keyword,jable,REJECT
   - DOMAIN-keyword,missav,REJECT
-
+  - RULE-SET,Lan,DIRECT
   # 2. 其它应用及服务规则
   - RULE-SET,Game,🎮 Game
   - RULE-SET,GoogleVoice,📱 GoogleVoice
