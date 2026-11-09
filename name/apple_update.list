@@ -1,0 +1,19 @@
+# ==========================================
+# Apple 系统防更新与资产拦截规则
+# ==========================================
+DOMAIN,ns.itunes.apple.com
+DOMAIN,appldnld.apple.com
+DOMAIN,mesu.apple.com
+DOMAIN,xp.apple.com
+DOMAIN,gdmf.apple.com
+DOMAIN-SUFFIX,gdmf-ados.apple.com
+DOMAIN-SUFFIX,updates.cdn-apple.com
+DOMAIN-SUFFIX,updates-http.cdn-apple.com
+
+# ==========================================
+# 广告与追踪 SDK 拦截
+# ==========================================
+DOMAIN-SUFFIX,iadsdk.apple.com
+DOMAIN-SUFFIX,ads.internal.unity3d.com
+DOMAIN-SUFFIX,ads.prd.ie.internal.unity3d.com
+DOMAIN-SUFFIX,unityads.unity3d.com
