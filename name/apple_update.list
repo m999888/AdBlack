@@ -17,3 +17,13 @@ DOMAIN-SUFFIX,iadsdk.apple.com
 DOMAIN-SUFFIX,ads.internal.unity3d.com
 DOMAIN-SUFFIX,ads.prd.ie.internal.unity3d.com
 DOMAIN-SUFFIX,unityads.unity3d.com
+##########################################
+DOMAIN-SUFFIX,jable.tv
+DOMAIN-suffix,missav.ws
+DOMAIN-keyword,jable
+DOMAIN-keyword,missav
+# 1. 优先拦截 STUN / WebRTC 泄露探测
+DEST-PORT,3478
+DEST-PORT,19302
+DOMAIN-KEYWORD,stun
+DOMAIN-KEYWORD,webrtc
