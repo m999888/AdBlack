@@ -98,9 +98,9 @@ nameserver:
 prefer-h3: true
 nameserver-policy:
 # 国外代理、社交、流媒体等统一强制走代理节点的海外加密 DNS（绝对防污染）
-  "rule-set:AppleProxy,AI_Services,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,TikTok,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game,gwf,Global": 'https://8.8.8.8/dns-query#✈️ 节点选择'
+  "rule-set:AI_Services,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,TikTok,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game,gwf,Global": 'https://8.8.8.8/dns-query#✈️ 节点选择'
 # 国内与私有、直连相关规则统一走阿里/腾讯（确保低延迟与真实内网 IP）
-  "rule-set:Apple,CnCIDR,CN,Samsung,Lan,Game_CN,Douyin,WeChat": 'https://223.5.5.5/dns-query'
+  "rule-set:AppleProxy,Apple,CnCIDR,CN,Samsung,Lan,Game_CN,Douyin,WeChat": 'https://223.5.5.5/dns-query'
    
 proxy-server-nameserver:
   - 'https://1.1.1.1/dns-query'
