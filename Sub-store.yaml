@@ -562,7 +562,7 @@ rule-providers:
   Privacy:
     type: http
     behavior: classical
-    url: https://magicrule.pages.dev/data/_shared/artifacts/Privacy_classical_3ae0f127ab1d5953.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/Privacy_classical_9f1f2f25eb233756.yaml
     path: ./rules/Privacy.yaml
     interval: 86400
   Hijacking:
