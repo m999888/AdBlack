@@ -764,15 +764,6 @@ rule-providers:
 # =========================================================
 rules:
   # 1. 优先拦截 STUN / WebRTC 泄露探测
-  - DST-PORT,3478,REJECT
-  - DST-PORT,19302,REJECT
-  - DOMAIN-KEYWORD,stun,REJECT
-  - DOMAIN-KEYWORD,webrtc,REJECT
-  #######################
-  - DOMAIN-SUFFIX,jable.tv,REJECT
-  - DOMAIN-suffix,missav.ws,REJECT
-  - DOMAIN-keyword,jable,REJECT
-  - DOMAIN-keyword,missav,REJECT
   - RULE-SET,Lan,DIRECT
   # 2. 其它应用及服务规则
 
