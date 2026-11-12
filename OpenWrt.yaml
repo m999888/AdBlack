@@ -373,7 +373,6 @@ proxy-groups:
 - name: 🍏 Apple服务
   type: select
   proxies:
-  - DIRECT
   - ✈️ 节点选择
   - 🇭🇰 香港节点
   - 🇸🇬 新加坡节点
@@ -381,6 +380,7 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
+  - DIRECT
   - 🚀 手动切换
 
 - name: 📱 三星服务
@@ -573,17 +573,17 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/Crypto.yaml
     path: ./rules/Crypto.yaml
     interval: 86400
-  AppleProxy:
+  Apple_Proxy:
     type: http
     behavior: classical
     url: https://magicrule.pages.dev/data/_shared/artifacts/AppleProxy_classical_5426fdc73399c31b.yaml
-    path: ./rules/TestFlight.yaml
+    path: ./rules/Apple_Proxy.yaml
     interval: 86400
-  Apple:
+  Apple_Direct:
     type: http
     behavior: classical
-    url: https://magicrule.pages.dev/data/_shared/artifacts/Apple_classical_0fa29647e779e764.yaml
-    path: ./rules/Apple.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/AppleDirect_classical_7b599bf8fa6e635a.yaml
+    path: ./rules/Apple_Direct.yaml
     interval: 86400
   Privacy:
     type: http
@@ -778,7 +778,8 @@ rules:
 
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
-  - RULE-SET,Apple,🍏 Apple服务
+  - RULE-SET,Apple_Direct,DIRECT
+  - RULE-SET,Apple_Proxy,🍏 Apple服务
   - RULE-SET,AppleProxy,🌍 全球服务
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
