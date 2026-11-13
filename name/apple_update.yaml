@@ -2,8 +2,6 @@ payload:
   # ==========================================
   # Apple资产拦截规则
   # ==========================================
-  - DOMAIN,gdmf.apple.com
-  - DOMAIN,mesu.apple.com
   - DOMAIN-SUFFIX,gdmf.apple.com
   - DOMAIN-SUFFIX,gdmf-ados.apple.com
   - DOMAIN-SUFFIX,mesu.apple.com
