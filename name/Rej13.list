@@ -1,0 +1,17 @@
+
+# ==========================================
+# Apple资产拦截规则
+# ==========================================
+DOMAIN-SUFFIX,gdmf.apple.com
+DOMAIN-SUFFIX,gdmf-ados.apple.com
+DOMAIN-SUFFIX,mesu.apple.com
+DOMAIN-SUFFIX,updates.cdn-apple.com
+DOMAIN-SUFFIX,updates-http.cdn-apple.com
+
+# ==========================================
+# STUN / WebRTC 泄露探测拦截
+# ==========================================
+DST-PORT,3478
+DST-PORT,19302
+DOMAIN-KEYWORD,stun
+DOMAIN-KEYWORD,webrtc
