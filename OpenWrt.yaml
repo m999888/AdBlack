@@ -747,6 +747,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/limbopro/Adblock4limbo/refs/heads/main/Clash/rule/Adblock4limbo.yaml
     path: ./rules/Adblock4limbo.yaml
     interval: 86400
+  apple_update:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/apple_update.yaml
+    path: ./rules/apple_update.yaml
+    interval: 86400
   rejectAd:
     type: http
     behavior: classical
@@ -763,7 +769,6 @@ rule-providers:
 # 规则匹配（自上而下匹配，最顶部具有最高优先级）
 # =========================================================
 rules:
-  # 1. 优先拦截 STUN / WebRTC 泄露探测
   - RULE-SET,Lan,DIRECT
   # 2. 其它应用及服务规则
 
@@ -771,7 +776,7 @@ rules:
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,Apple_Direct,DIRECT
   - RULE-SET,Apple_Proxy,🍏 Apple服务
-  - RULE-SET,AppleProxy,🌍 全球服务
+  - RULE-SET,apple_update,🛑 广告拦截
   - RULE-SET,rejectAd,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
