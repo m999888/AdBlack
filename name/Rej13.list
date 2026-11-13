@@ -11,7 +11,7 @@ DOMAIN-SUFFIX,updates-http.cdn-apple.com
 # ==========================================
 # STUN / WebRTC 泄露探测拦截
 # ==========================================
-DST-PORT,3478
-DST-PORT,19302
+DEST-PORT,3478
+DEST-PORT,19302
 DOMAIN-KEYWORD,stun
 DOMAIN-KEYWORD,webrtc
