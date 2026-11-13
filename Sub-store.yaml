@@ -721,11 +721,11 @@ rule-providers:
     url: https://raw.githubusercontent.com/limbopro/Adblock4limbo/refs/heads/main/Clash/rule/Adblock4limbo.yaml
     path: ./rules/Adblock4limbo.yaml
     interval: 86400
-  rejectAd:
+  apple_update:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/apple_update.yaml
-    path: ./rules/rejectAd.yaml
+    path: ./rules/apple_update.yaml
     interval: 86400
   Lan:
     type: http
@@ -744,7 +744,7 @@ rules:
   - RULE-SET,AI_Services,👽 AI_Services
   - RULE-SET,Apple_Direct,DIRECT
   - RULE-SET,Apple_Proxy,🍏 Apple服务
-  - RULE-SET,rejectAd,🛑 广告拦截
+  - RULE-SET,apple_update,🛑 广告拦截
   - RULE-SET,Adblock4limbo,🛑 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
