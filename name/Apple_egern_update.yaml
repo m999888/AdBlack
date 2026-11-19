@@ -1,0 +1,9 @@
+# --- 拦截 iOS 系统 OTA 更新与安装包下载 ---
+no_resolve: true
+domain_set:
+- xp.apple.com
+domain_suffix_set:
+- gdmf.apple.com
+- appldnld.apple.com
+- swscan.apple.com
+
