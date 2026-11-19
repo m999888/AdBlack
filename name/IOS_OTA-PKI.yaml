@@ -1,0 +1,16 @@
+
+# ==========================================
+# Apple资产拦截规则
+no_resolve: true
+domain_keyword_set:
+- stun
+- webrtc
+domain_suffix_set:
+- gdmf.apple.com
+- gdmf-ados.apple.com
+- mesu.apple.com
+- updates.cdn-apple.com
+- updates-http.cdn-apple.com
+dest_port_set:
+- '3478'
+- '19302'
