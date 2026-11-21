@@ -158,7 +158,7 @@ proxy-groups:
   - name: 💰 加密货币
     type: select
     proxies:
-      - DIRECT
+      - 🇨🇳 DIRECT
       - ✈️ 节点选择
       - 🚀 手动切换
       - 🇭🇰 香港节点
@@ -173,13 +173,13 @@ proxy-groups:
     type: select
     proxies:
       - ✈️ 节点选择
-      - DIRECT
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
+      - 🇨🇳 DIRECT
 
   - name: 📱 电报消息
     type: select
@@ -214,7 +214,7 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
 
-  - name: 🔍️ Google服务
+  - name: 🟢 Google服务
     type: select
     proxies:
       - ✈️ 节点选择
@@ -225,7 +225,7 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
 
-  - name: 📘 Microsoft服务
+  - name: 🌐 Microsoft服务
     type: select
     proxies:
       - DIRECT
@@ -317,7 +317,7 @@ proxy-groups:
     type: select
     proxies:
       - ✈️ 节点选择
-      - DIRECT
+      - 🇨🇳 DIRECT
 
   - name: 🌍 全球服务
     type: select
@@ -335,7 +335,7 @@ proxy-groups:
     type: select
     proxies:
       - 🎮 游戏节点
-      - DIRECT
+      - 🇨🇳 DIRECT
 
   - name: 🎮 游戏节点
     type: select
@@ -361,13 +361,13 @@ proxy-groups:
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
-      - DIRECT
+      - 🇨🇳 DIRECT
       - 🚀 手动切换
       
   - name: 📱 三星服务
     type: select
     proxies:
-      - DIRECT
+      - 🇨🇳 DIRECT
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
@@ -375,11 +375,10 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
 
-  - name: 🇨🇳 国内直连
+  - name: 🇨🇳 DIRECT
     type: select
     proxies:
       - DIRECT
-      - ✈️ 节点选择
 
   - name: 🎬 Netflix视频
     type: select
@@ -392,12 +391,11 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 💿 奈飞节点
       - 🚀 手动切换
-      - DIRECT
 
   - name: 📢 谷歌FCM
     type: select
     proxies:
-      - DIRECT
+      - 🇨🇳 DIRECT
       - ✈️ 节点选择
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
@@ -417,7 +415,6 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
       - 🚀 手动切换
-      - DIRECT
 
   - name: 💿 奈飞节点
     type: select
@@ -427,13 +424,13 @@ proxy-groups:
   - name: 🇨🇳 抖音
     type: select
     proxies:
-      - DIRECT
+      - 🇨🇳 DIRECT
       - ✈️ 节点选择
 
   - name: 🇨🇳 微信
     type: select
     proxies:
-      - DIRECT
+      - 🇨🇳 DIRECT
       - ✈️ 节点选择
 
   - name: 🛡️ 隐私防护
@@ -441,7 +438,7 @@ proxy-groups:
     proxies:
       - REJECT
 
-  - name: 🛑 广告拦截
+  - name: 🚫 广告拦截
     type: select
     proxies:
       - REJECT
@@ -676,11 +673,11 @@ rule-providers:
     url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/Facebook.yaml
     path: ./rules/Facebook.yaml
     interval: 86400
-  CnCIDR:
+  CN_IPs:
     type: http
     behavior: classical
-    url: https://magicrule.pages.dev/data/_shared/artifacts/ChinaIPs_classical_b357d7a3f17737f1.yaml
-    path: ./rules/cnCIDR.yaml
+    url: https://magicrule.pages.dev/data/_shared/artifacts/ChinaIPs_classical_ef098f9be13f0809.yaml
+    path: ./rules/CN_IPs.yaml
     interval: 86400
   CN:
     type: http
@@ -741,19 +738,19 @@ rule-providers:
 # =========================================================
 rules:
   - DOMAIN-SUFFIX,cleanip.io,🌍 全球服务
-  - RULE-SET,Lan,DIRECT
+  - RULE-SET,Lan,🇨🇳 DIRECT
   # 2. 其它应用及服务规则
 
   - RULE-SET,GoogleVoice,📱 GoogleVoice
   - RULE-SET,AI_Services,👽 AI_Services
-  - RULE-SET,Apple_Direct,DIRECT
+  - RULE-SET,Apple_Direct,🇨🇳 DIRECT
   - RULE-SET,Apple_Proxy,🍏 Apple服务
-  - RULE-SET,apple_update,🛑 广告拦截
-  - RULE-SET,rejectAd,🛑 广告拦截
-  - RULE-SET,Adblock4limbo,🛑 广告拦截
+  - RULE-SET,apple_update,🚫 广告拦截
+  - RULE-SET,rejectAd,🚫 广告拦截
+  - RULE-SET,Adblock4limbo,🚫 广告拦截
   - RULE-SET,Privacy,🛡️ 隐私防护
   - RULE-SET,Hijacking,🛡️ 隐私防护
-  - RULE-SET,Game_CN,🇨🇳 国内直连
+  - RULE-SET,Game_CN,🇨🇳 DIRECT
   - RULE-SET,Game,🎮 Game
   - RULE-SET,Spotify,🎵 Spotify
   - RULE-SET,Telegram,📱 电报消息
@@ -763,8 +760,8 @@ rules:
   - RULE-SET,Instagram,📘 Instagram
   - RULE-SET,PayPal,📘 PayPal
   - RULE-SET,GoogleFCM,📢 谷歌FCM
-  - RULE-SET,GitHub,📘 Microsoft服务
-  - RULE-SET,Microsoft,📘 Microsoft服务
+  - RULE-SET,GitHub,🌐 Microsoft服务
+  - RULE-SET,Microsoft,🌐 Microsoft服务
   - RULE-SET,Crypto,💰 加密货币
   - RULE-SET,YouTubeMusic,🎬 YouTube服务
   - RULE-SET,YouTube,🎬 YouTube服务
@@ -773,14 +770,14 @@ rules:
   - RULE-SET,Douyin,🇨🇳 抖音
   - RULE-SET,TikTok,🎬 TikTok
   - RULE-SET,Facebook,📘 Facebook
-  - RULE-SET,Google,🔍️ Google服务
+  - RULE-SET,Google,🟢 Google服务
   # 3. 代理规则
   - RULE-SET,gwf,🌍 全球服务
   - RULE-SET,Global,🌍 全球服务
 
   # 4. 直连规则
-  - RULE-SET,CnCIDR,🇨🇳 国内直连
-  - RULE-SET,CN,🇨🇳 国内直连
+  - RULE-SET,CN_IPs,🇨🇳 DIRECT
+  - RULE-SET,CN,🇨🇳 DIRECT
   - GEOIP,CN,DIRECT,no-resolve
 
   # 5. 兜底策略
