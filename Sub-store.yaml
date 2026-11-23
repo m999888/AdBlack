@@ -96,9 +96,9 @@ nameserver:
 prefer-h3: true
 nameserver-policy:
 # 国外代理、社交、流媒体等统一强制走代理节点的海外加密 DNS（绝对防污染）
-  "rule-set:AI_Services,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,TikTok,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game,gwf,Global": 'https://1.1.1.1/dns-query#✈️ 节点选择'
+  "rule-set:AppleProxy,AI_Services,Google,YouTube,Telegram,Twitter,Instagram,Facebook,Netflix,Spotify,TikTok,GoogleVoice,GoogleFCM,Crypto,PayPal,GitHub,Microsoft,Whatsapp,Game,gwf,Global": 'https://1.1.1.1/dns-query#✈️ 节点选择'
 # 国内与私有、直连相关规则统一走阿里/腾讯（确保低延迟与真实内网 IP）
-  "rule-set:AppleProxy,Apple,CnCIDR,CN,Samsung,Lan,Game_CN,Douyin,WeChat": 'https://223.5.5.5/dns-query'
+  "rule-set:Apple,CnCIDR,CN,Samsung,Lan,Game_CN,Douyin,WeChat": 'https://223.5.5.5/dns-query'
    
 proxy-server-nameserver:
   - 'https://1.1.1.1/dns-query'
@@ -691,12 +691,6 @@ rule-providers:
     url: https://magicrule.pages.dev/data/_shared/artifacts/Global_classical_84d7c926159da35f.yaml
     path: ./rules/Global.yaml
     interval: 86400
-  gwf:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/m999888/AdBlack/refs/heads/main/name/gwf.yaml
-    path: ./rules/gwf.yaml
-    interval: 86400
   Game_CN:
     type: http
     behavior: classical
@@ -772,7 +766,6 @@ rules:
   - RULE-SET,Facebook,📘 Facebook
   - RULE-SET,Google,🟢 Google服务
   # 3. 代理规则
-  - RULE-SET,gwf,🌍 全球服务
   - RULE-SET,Global,🌍 全球服务
 
   # 4. 直连规则
