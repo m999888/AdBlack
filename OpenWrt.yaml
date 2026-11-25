@@ -116,7 +116,7 @@ proxy-providers:
   Airport Subscription:
     type: http
     # 请确认此处是否为有效订阅链接
-    url: "https://gist.githubusercontent.com/m999888/0e4b336029a60e4a5acb907c14568676/raw/Jc"
+    url: "订阅"
     interval: 86400
     path: ./providers/airport.yaml
     exclude-filter: (官|网站|地址|过期|到期|剩余|流量|重置|联系|客服|群|订阅|续费|测试|专线|公告|提示)
