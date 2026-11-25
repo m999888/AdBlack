@@ -171,7 +171,7 @@ proxy-groups:
 - name: 💰 加密货币
   type: select
   proxies:
-  - DIRECT
+  - 🇨🇳 DIRECT
   - ✈️ 节点选择
   - 🚀 手动切换
   - 🇭🇰 香港节点
@@ -186,13 +186,13 @@ proxy-groups:
   type: select
   proxies:
   - ✈️ 节点选择
-  - DIRECT
   - 🇭🇰 香港节点
   - 🇸🇬 新加坡节点
   - 🇯🇵 日本节点
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
+  - 🇨🇳 DIRECT
 
 - name: 📱 电报消息
   type: select
@@ -241,7 +241,7 @@ proxy-groups:
 - name: 📘 Microsoft服务
   type: select
   proxies:
-  - DIRECT
+  - 🇨🇳 DIRECT
   - ✈️ 节点选择
   - 🇭🇰 香港节点
   - 🇸🇬 新加坡节点
@@ -332,7 +332,6 @@ proxy-groups:
   type: select
   proxies:
   - ✈️ 节点选择
-  - DIRECT
 
 - name: 🌍 全球服务
   type: select
@@ -350,7 +349,7 @@ proxy-groups:
   type: select
   proxies:
   - 🎮 游戏节点
-  - DIRECT
+  - 🇨🇳 DIRECT
 
 - name: 🎮 游戏节点
   type: select
@@ -377,13 +376,13 @@ proxy-groups:
   - 🇺🇲 美国节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
-  - DIRECT
+  - 🇨🇳 DIRECT
   - 🚀 手动切换
 
 - name: 📱 三星服务
   type: select
   proxies:
-  - DIRECT
+  - 🇨🇳 DIRECT
   - 🇭🇰 香港节点
   - 🇸🇬 新加坡节点
   - 🇯🇵 日本节点
@@ -391,7 +390,7 @@ proxy-groups:
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
 
-- name: 🇨🇳 国内直连
+- name: 🇨🇳 DIRECT
   type: select
   proxies:
   - DIRECT
@@ -408,12 +407,12 @@ proxy-groups:
   - 🇰🇷 韩国节点
   - 💿 奈飞节点
   - 🚀 手动切换
-  - DIRECT
+  - 🇨🇳 DIRECT
 
 - name: 📢 谷歌FCM
   type: select
   proxies:
-  - DIRECT
+  - 🇨🇳 DIRECT
   - ✈️ 节点选择
   - 🇭🇰 香港节点
   - 🇸🇬 新加坡节点
@@ -432,8 +431,6 @@ proxy-groups:
   - 🇯🇵 日本节点
   - 🇨🇳 台湾节点
   - 🇰🇷 韩国节点
-  - 🚀 手动切换
-  - DIRECT
 
 - name: 💿 奈飞节点
   type: select
