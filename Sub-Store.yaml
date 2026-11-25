@@ -42,7 +42,7 @@ dns:
 # 4. 代理节点域名专用 DNS（必须为纯直连 IPv4，严禁绑定代理策略组防止死锁）
   proxy-server-nameserver:
     - 1.1.1.1
-    - 1.0.0.1
+    - 8.8.8.8
     - 2606:4700:4700::1111
 # 5. Fake-IP 黑名单过滤（命中的域名跳过 Fake-IP，直接走真实 DNS 解析）
   fake-ip-filter:
