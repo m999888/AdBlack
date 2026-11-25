@@ -50,8 +50,8 @@ dns:
     - '+.mask.icloud.com'
     - '+.mask-h2.icloud.com'
     - '+.mask-api.icloud.com'
-    - '*-cloudkit.icloud.com'
-    - '*-keyvalueservice.icloud.com'
+    - '*.cloudkit.icloud.com'
+    - '*.keyvalueservice.icloud.com'
     - 'gateway.icloud.com'
     - 'metrics.icloud.com'
     # 4. 常见路由器后台与局域网服务
