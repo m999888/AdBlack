@@ -42,7 +42,7 @@ dns:
 # 4. 代理节点域名专用 DNS（必须为纯直连 IPv4，严禁绑定代理策略组防止死锁）
   proxy-server-nameserver:
     - 1.1.1.1
-    - 1.0.0.1
+    - 8.8.8.8
     - 2606:4700:4700::1111
 # 5. Fake-IP 黑名单过滤（命中的域名跳过 Fake-IP，直接走真实 DNS 解析）
   fake-ip-filter:
@@ -105,14 +105,14 @@ tun:
   auto-detect-interface: true
   strict-route: true
   dns-hijack:
-- 'any:53'
-- 'tcp://any:53'
+    - 'any:53'
+    - 'tcp://any:53'
   mtu: 1500
   route-exclude-address: []
 
 proxies: []
 proxy-providers:
-  Airport_Subscription:
+  Airport Subscription:
     type: http
     # 请确认此处是否为有效订阅链接
     url: "订阅连接"
@@ -193,7 +193,7 @@ proxy-groups:
     - 🇨🇳 台湾节点
     - 🇰🇷 韩国节点
 
-- name: 👽 AI_Services
+- name: 👽 AI服务
   type: select
   proxies:
     - 👽 AI节点
@@ -738,7 +738,7 @@ rules:
 - DOMAIN-SUFFIX,cleanip.io,🌍 全球服务
 - RULE-SET,Lan,🇨🇳 DIRECT
 - RULE-SET,GoogleVoice,📱 GoogleVoice
-- RULE-SET,AI_Services,👽 AI_Services
+- RULE-SET,AI_Services,👽 AI服务
 - RULE-SET,Apple_Direct,🇨🇳 DIRECT
 - RULE-SET,Apple_Proxy,🍏 Apple服务
 - RULE-SET,IOS_OTA-PKI,🚫 广告拦截
