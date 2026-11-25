@@ -455,7 +455,7 @@ proxy-groups:
   proxies:
   - REJECT
 
-- name: 🛑 广告拦截
+- name: 🚫 广告拦截
   type: select
   proxies:
   - REJECT
