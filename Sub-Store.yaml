@@ -97,9 +97,9 @@ dns:
   #指定国内规则集列表走阿里DNS
   "rule-set:CN,CN_IPs,Apple_Direct,Apple_Proxy,Lan,WeChat,Douyin,Game_CN,Samsung": 'https://223.5.5.5/dns-query'
   proxy-server-nameserver:
-    - 'https://1.1.1.1/dns-query'
-    - 'https://1.0.0.1/dns-query'
-    - 'https://[2606:4700:4700::1111]/dns-query'
+    - 1.1.1.1
+    - 1.0.0.1
+    - 2606:4700:4700::1111
   respect-rules: true
   use-system-hosts: false
 
