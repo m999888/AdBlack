@@ -145,40 +145,38 @@ proxy-groups:
       - ⚡️其它节点（手选）
 
   - name: 🚀 手动切换
-    type: select
-    include-all: true
+      type: select
+      include-all: true
 
   - name: ⚙️ 自动策略
-    type: url-test
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 10
+      type: url-test
+      include-all: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      tolerance: 10
 
   - name: 💰 加密货币
     type: select
     proxies:
       - 🇨🇳 DIRECT
       - ✈️ 节点选择
-      - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
-      - 🇰🇷 韩国节点
-      - ⚡️其它节点（手选）
-
+      - 🚀 手动切换
+      
   - name: 🎵 Spotify
     type: select
     proxies:
-      - ✈️ 节点选择
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
+      - ✈️ 节点选择
       - 🇨🇳 DIRECT
 
   - name: 📱 电报消息
@@ -228,20 +226,17 @@ proxy-groups:
   - name: 🌐 Microsoft服务
     type: select
     proxies:
-      - DIRECT
       - ✈️ 节点选择
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
-      - 🇰🇷 韩国节点
-
+      - 🇨🇳 DIRECT
   - name: 📘 Instagram
     type: select
     proxies:
       - ✈️ 节点选择
-      - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
@@ -253,7 +248,6 @@ proxy-groups:
     type: select
     proxies:
       - ✈️ 节点选择
-      - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
@@ -261,11 +255,10 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
 
-  - name: 📘 X
+  - name: 🌐 X
     type: select
     proxies:
       - ✈️ 节点选择
-      - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
@@ -273,11 +266,10 @@ proxy-groups:
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
 
-  - name: 📘 Facebook
+  - name: 🌐 Facebook
     type: select
     proxies:
       - ✈️ 节点选择
-      - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
@@ -288,8 +280,8 @@ proxy-groups:
   - name: 📘 PayPal
     type: select
     proxies:
+      - 🇨🇳 DIRECT
       - ✈️ 节点选择
-      - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇯🇵 日本节点
@@ -298,30 +290,29 @@ proxy-groups:
       - 🇰🇷 韩国节点
 
   - name: 👽 AI节点
-    type: url-test
-    include-all: true
-    filter: (IEPL 1.7|SG|JP|TW)
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (IEPL 1.7|SG|JP|TW)
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      tolerance: 10
 
   - name: 👽 AI其它节点
-    type: url-test
-    include-all: true
-    filter: (SG|TW|JP)
-    url: https://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (SG|TW|JP)
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      tolerance: 10
 
   - name: 🐟 漏网之鱼
-    type: select
-    proxies:
+      type: select
+      proxies:
       - ✈️ 节点选择
-      - 🇨🇳 DIRECT
 
   - name: 🌍 全球服务
-    type: select
-    proxies:
+      type: select
+      proxies:
       - ✈️ 节点选择
       - ⚙️ 自动策略
       - 🇭🇰 香港节点
@@ -332,28 +323,28 @@ proxy-groups:
       - 🇰🇷 韩国节点
 
   - name: 🎮 Game
-    type: select
-    proxies:
+      type: select
+      proxies:
       - 🎮 游戏节点
       - 🇨🇳 DIRECT
 
   - name: 🎮 游戏节点
-    type: select
-    include-all: true
-    filter: (IPLC|IEPL|专线)
+      type: select
+      include-all: true
+      filter: (IPLC|IEPL|专线)
 
   - name: 🎬 TikTok
-    type: select
-    proxies:
+      type: select
+      proxies:
+      - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
       - 🇰🇷 韩国节点
-      - 🚀 手动切换
       
   - name: 🍏 Apple服务
-    type: select
-    proxies:
+      type: select
+      proxies:
+      - 🇨🇳 DIRECT
       - ✈️ 节点选择
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
@@ -361,12 +352,10 @@ proxy-groups:
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
       - 🇰🇷 韩国节点
-      - 🇨🇳 DIRECT
-      - 🚀 手动切换
       
   - name: 📱 三星服务
-    type: select
-    proxies:
+      type: select
+      proxies:
       - 🇨🇳 DIRECT
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
@@ -376,13 +365,13 @@ proxy-groups:
       - 🇰🇷 韩国节点
 
   - name: 🇨🇳 DIRECT
-    type: select
-    proxies:
+      type: select
+      proxies:
       - DIRECT
 
   - name: 🎬 Netflix视频
-    type: select
-    proxies:
+      type: select
+      proxies:
       - 🇭🇰 香港节点
       - 🇸🇬 新加坡节点
       - 🇨🇳 台湾节点
@@ -393,8 +382,8 @@ proxy-groups:
       - 🚀 手动切换
 
   - name: 📢 谷歌FCM
-    type: select
-    proxies:
+      type: select
+      proxies:
       - 🇨🇳 DIRECT
       - ✈️ 节点选择
       - 🇭🇰 香港节点
@@ -402,11 +391,10 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇨🇳 台湾节点
-      - 🇰🇷 韩国节点
 
   - name: 📱 GoogleVoice
-    type: select
-    proxies:
+      type: select
+      proxies:
       - 🇺🇲 美国节点
       - ✈️ 节点选择
       - 🇭🇰 香港节点
@@ -417,107 +405,107 @@ proxy-groups:
       - 🚀 手动切换
 
   - name: 💿 奈飞节点
-    type: select
-    include-all: true
-    filter: (NF|奈飞|解锁|Netflix|NETFLIX|Media|UNLOCK)
+      type: select
+      include-all: true
+      filter: (NF|奈飞|解锁|Netflix|NETFLIX|Media|UNLOCK)
 
   - name: 🇨🇳 抖音
-    type: select
-    proxies:
-      - 🇨🇳 DIRECT
+      type: select
+      proxies:
+      - DIRECT
       - ✈️ 节点选择
 
   - name: 🇨🇳 微信
-    type: select
-    proxies:
-      - 🇨🇳 DIRECT
+      type: select
+      proxies:
+      - DIRECT
       - ✈️ 节点选择
 
   - name: 🛡️ 隐私防护
-    type: select
-    proxies:
+      type: select
+      proxies:
       - REJECT
 
   - name: 🚫 广告拦截
-    type: select
-    proxies:
+      type: select
+      proxies:
       - REJECT
 
   - name: 🇭🇰 香港节点
-    type: url-test
-    include-all: true
-    filter: (港|HK|Hong Kong)
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (港|HK|Hong Kong)
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
 
   - name: 🇸🇬 新加坡节点
-    type: url-test
-    include-all: true
-    filter: (新加坡|坡|狮城|SG|Singapore)
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (新加坡|坡|狮城|SG|Singapore)
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
 
   - name: 🇯🇵 日本节点
-    type: url-test
-    include-all: true
-    filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
 
   - name: 🇺🇲 美国节点
-    type: url-test
-    include-all: true
-    filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
 
   - name: 🇨🇳 台湾节点
-    type: url-test
-    include-all: true
-    filter: (台|新北|彰化|TW|Taiwan)
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (台|新北|彰化|TW|Taiwan)
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
 
   - name: 🇰🇷 韩国节点
-    type: url-test
-    include-all: true
-    filter: (KR|Korea|KOR|首尔|韩|韓)
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: (KR|Korea|KOR|首尔|韩|韓)
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
 
   - name: ⚡️其它节点
-    type: url-test
-    include-all: true
-    filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
+      type: url-test
+      include-all: true
+      filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
 
   - name: ⚡️其它节点（手选）
-    type: select
-    include-all: true
-    filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
+      type: select
+      include-all: true
+      filter: ^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
 
   - name: 🔯 故障转移
-    type: fallback
-    include-all: true
-    filter: "(?i)HK|香港|SG|新|日|JP|台|TW"
-    url: https://www.gstatic.com/generate_204
-    interval: 300
+      type: fallback
+      include-all: true
+      filter: "(?i)HK|香港|SG|新|日|JP|台|TW"
+      url: https://www.gstatic.com/generate_204
+      interval: 300
 
   - name: 🔮 负载均衡
-    type: load-balance
-    include-all: true
-    url: https://www.gstatic.com/generate_204
-    interval: 600
-    tolerance: 10
-    strategy: consistent-hashing
+      type: load-balance
+      include-all: true
+      url: https://www.gstatic.com/generate_204
+      interval: 600
+      tolerance: 10
+      strategy: consistent-hashing
 
 # ---------------------------------------------------------
 # 规则集提供商
@@ -759,11 +747,11 @@ rules:
   - RULE-SET,Crypto,💰 加密货币
   - RULE-SET,YouTubeMusic,🎬 YouTube服务
   - RULE-SET,YouTube,🎬 YouTube服务
-  - RULE-SET,Twitter,📘 X
+  - RULE-SET,Twitter,🌐 X
   - RULE-SET,WeChat,🇨🇳 微信
   - RULE-SET,Douyin,🇨🇳 抖音
   - RULE-SET,TikTok,🎬 TikTok
-  - RULE-SET,Facebook,📘 Facebook
+  - RULE-SET,Facebook,🌐 Facebook
   - RULE-SET,Google,🟢 Google服务
   # 3. 代理规则
   - RULE-SET,Global,🌍 全球服务
