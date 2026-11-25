@@ -193,7 +193,7 @@ proxy-groups:
     - 🇨🇳 台湾节点
     - 🇰🇷 韩国节点
 
-- name: 👽 AI服务
+- name: 👽 AI services
   type: select
   proxies:
     - 👽 AI节点
@@ -738,7 +738,7 @@ rules:
 - DOMAIN-SUFFIX,cleanip.io,🌍 全球服务
 - RULE-SET,Lan,🇨🇳 DIRECT
 - RULE-SET,GoogleVoice,📱 GoogleVoice
-- RULE-SET,AI_Services,👽 AI服务
+- RULE-SET,AI_Services,👽 AI services
 - RULE-SET,Apple_Direct,🇨🇳 DIRECT
 - RULE-SET,Apple_Proxy,🍏 Apple服务
 - RULE-SET,IOS_OTA-PKI,🚫 广告拦截
