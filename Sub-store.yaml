@@ -9,6 +9,21 @@ log-level: info
 ipv6: false
 secret: set-your-secret
 unified-delay: true
+# ---------------------------------------------------------
+# 高性能 TUN 虚拟网卡配置
+tun:
+  enable: true
+  stack: mixed
+  device: Winbox
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  dns-hijack:
+    - 'any:53'
+    - 'tcp://any:53'
+  mtu: 1500
+  route-exclude-address: []
+
 dns:
   enable: true
   ipv6: false
@@ -108,22 +123,6 @@ dns:
     - '+.xboxlive.com'
 profile:
   store-selected: true
-
-# ---------------------------------------------------------
-# 高性能 TUN 虚拟网卡配置
-# ---------------------------------------------------------
-tun:
-  enable: true
-  stack: mixed
-  device: Winbox
-  auto-route: true
-  auto-detect-interface: true
-  strict-route: true
-  dns-hijack:
-    - 'any:53'
-    - 'tcp://any:53'
-  mtu: 1500
-  route-exclude-address: []
 
 # ---------------------------------------------------------
 # 策略组
