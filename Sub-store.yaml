@@ -49,14 +49,12 @@ dns:
     "geosite:cn,private":
       - https://223.5.5.5/dns-query
       - https://223.6.6.6/dns-query
-    "rule-set:CN,Lan,WeChat,Douyin,Game_CN,Samsung,Game": 'https://223.5.5.5/dns-query'
+    "rule-set:CN,Lan,WeChat,Douyin,Game_CN,Game": 'https://223.5.5.5/dns-query'
   # 4. 代理节点域名专用 DNS
   proxy-server-nameserver:
     - tls://1.1.1.1
-    - tls://8.8.8.8
     - tls://9.9.9.9
-
-# 5. Fake-IP 黑名单过滤（命中的域名跳过 Fake-IP，直接走真实 DNS 解析）
+  # 5. Fake-IP 黑名单过滤（命中的域名跳过 Fake-IP，直接走真实 DNS 解析）
   fake-ip-filter:
     # 局域网与本地设备
     - '*.lan'
@@ -740,7 +738,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/Kianuni/AppleFlow/main/rules/clash/Apple-APNs-Direct.yaml
     path: ./ruleset/Apple-APNs-Direct.yaml
 
-
 # =========================================================
 # 规则匹配（自上而下匹配，最顶部具有最高优先级）
 # =========================================================
@@ -786,6 +783,3 @@ rules:
   - RULE-SET,CN,🇨🇳 DIRECT
   - GEOIP,CN,DIRECT,no-resolve
   - MATCH,🐟 漏网之鱼
-
-
-  
