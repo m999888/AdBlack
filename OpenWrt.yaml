@@ -9,8 +9,10 @@ log-level: info
 ipv6: false
 secret: set-your-secret
 unified-delay: true
+
 # ---------------------------------------------------------
 # 高性能 TUN 虚拟网卡配置
+# ---------------------------------------------------------
 tun:
   enable: true
   stack: mixed
@@ -55,8 +57,7 @@ dns:
     - tls://1.1.1.1
     - tls://8.8.8.8
     - tls://9.9.9.9
-
-# 5. Fake-IP 黑名单过滤（命中的域名跳过 Fake-IP，直接走真实 DNS 解析）
+  # 5. Fake-IP 黑名单过滤（命中的域名跳过 Fake-IP，直接走真实 DNS 解析）
   fake-ip-filter:
     # 局域网与本地设备
     - '*.lan'
@@ -121,11 +122,15 @@ dns:
     - '+.turn.*.*'
     - '+.turn.*.*.*'
     - '+.xboxlive.com'
+
 profile:
   store-selected: true
+
 # ---------------------------------------------------------
-#订阅模板
+# 订阅模板
+# ---------------------------------------------------------
 proxies: []
+
 proxy-providers:
   Airport Subscription:
     type: http
@@ -745,7 +750,6 @@ rule-providers:
     url: https://magicrule.pages.dev/data/_shared/artifacts/Lan_classical_24817c9e646b9514.yaml
     path: ./rules/Lan.yaml
     interval: 86400
-
   appleflow-siri-direct:
     type: http
     behavior: classical
@@ -770,7 +774,6 @@ rule-providers:
     interval: 86400
     url: https://raw.githubusercontent.com/Kianuni/AppleFlow/main/rules/clash/Apple-APNs-Direct.yaml
     path: ./ruleset/Apple-APNs-Direct.yaml
-
 
 # =========================================================
 # 规则匹配（自上而下匹配，最顶部具有最高优先级）
